@@ -1,8 +1,33 @@
+@import 'meyer_css_reset.css';
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #fff;
+  background: #026aa7;
 }
-
 a {
-  color: #00B7FF;
+  color: #fff;
+  text-decoration: none;
+}
+nav.basic-layout {
+  background: #0079bf;
+  padding: 20px;
+  height: 2em;
+  overflow: hidden;
+}
+nav.basic-layout header {
+  float: left;
+}
+nav.basic-layout header a.logo-white {
+  display: block;
+  height: 2em;
+}
+nav.basic-layout header a.logo-white img {
+  height: 100%;
+}
+nav.basic-layout header a.logo-white:hover {
+  opacity: 0.8;
+}
+nav.basic-layout section.user-nav {
+  float: right;
 }

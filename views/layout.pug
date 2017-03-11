@@ -1,7 +1,19 @@
+include _mixins.pug
+
 doctype html
-html
+html(lang='en-US')
   head
+    meta(charset='utf-8')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    +stylesheet_link_tag('style')
+    +javascript_include_tag('vendor/all')
   body
+    nav.basic-layout.clearfix
+      header
+        a.logo-white(href='/')
+          img(src='/images/trello-logo-white.svg' alt='logo')
+      section.user-nav
+        a.btn(href='/users/login') Log In
+        a.btn.btn-primary(href='/users/register') Sign Up
+
     block content

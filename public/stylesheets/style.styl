@@ -1,0 +1,29 @@
+@import 'meyer_css_reset.css'
+@import 'mixins.styl'
+
+html,
+body
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif
+  color: colors.text
+  background: colors.background
+
+a
+  color: colors.text
+  text-decoration: none
+
+nav.basic-layout
+  background: colors.basicNav.bg
+  padding: 20px
+  height: 2em
+  overflow: hidden
+  header
+    float: left
+    a.logo-white
+      display: block
+      height: 2em
+      img
+        height: 100%
+    a.logo-white:hover
+      opacity: 0.8
+  section.user-nav
+    float: right
