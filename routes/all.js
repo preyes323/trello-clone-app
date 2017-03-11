@@ -3,10 +3,10 @@ const path = require('path');
 const express = require('express');
 
 const router = express.Router();
-const routeFiles = ['index', 'user'];
+const routeFiles = ['index', 'users'];
 
-routeFiles.forEach((router) => {
-  require(path.resolve(path.dirname(__dirname), `routes/${router}`))(router);
+routeFiles.forEach((route) => {
+  require(path.resolve(path.dirname(__dirname), `routes/${route}`))(router);
 });
 
 module.exports = router;
