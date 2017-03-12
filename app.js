@@ -11,10 +11,8 @@ const csrf = require('csurf');
 const all = require('./routes/all');
 const app = express();
 
-const usersFilePath = path.resolve(path.dirname(__dirname), 'trello-clone-app/data/users.json');
-const usersApi = Object
-      .create(require(path.resolve(path.dirname(__dirname), 'trello-clone-app/api/JSON-crud')))
-      .init(usersFilePath);
+const usersFilePath =  './data/users.json';
+const usersApi = Object.create(require('./api/JSON-crud')).init(usersFilePath);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
