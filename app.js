@@ -11,7 +11,7 @@ const csrf = require('csurf');
 const all = require('./routes/all');
 const app = express();
 
-const usersFilePath =  './data/users.json';
+const usersFilePath = './data/users.json';
 const usersApi = Object.create(require('./api/JSON-crud')).init(usersFilePath);
 
 // view engine setup

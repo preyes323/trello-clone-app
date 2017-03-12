@@ -1,6 +1,10 @@
 module.exports = function(router) {
   router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Trello Clone' });
+    if (req.user) {
+      res.redirect('/dashboard');
+    } else {
+      res.render('index', { title: 'Trello Clone' });
+    }
   });
 
   router.get('/about', function(req, res, next) {
