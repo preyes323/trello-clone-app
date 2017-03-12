@@ -8,6 +8,8 @@ block content
 
     if error
       p ERROR: #{error}
+      p.
+        No account yet? #[a(href="/users/register") Sign Up]
 
     input(type="hidden", name="_csrf", value=csrfToken)
 
