@@ -1,4 +1,31 @@
 extends layout
+
+append header
+
 block content
-  h1= title
-  p Welcome to #{title}
+  div.info-content
+    form(method="post" action="/users/register")
+      if error
+        p ERROR: #{error}
+
+      h1 Create an Account
+
+      input(type="hidden" name="_csrf" value=csrfToken)
+
+      span First Name:
+      input(type="text" name="firstName" required=true)
+      br
+
+      span Last Name:
+      input(type="text" name="lastName" required)
+      br
+
+      span Email:
+      input(type="email" name="email" required)
+      br
+
+      span Password:
+      input(type="password" name="password" required)
+      br
+
+      input.btn(type="submit")

@@ -4,9 +4,17 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const session = require('client-sessions');
+const bcrypt = require('bcryptjs');
+const csrf = require('csurf');
 
 const all = require('./routes/all');
 const app = express();
+
+const usersFilePath = path.resolve(path.dirname(__dirname), 'trello-clone-app/data/users.json');
+const usersApi = Object
+      .create(require(path.resolve(path.dirname(__dirname), 'trello-clone-app/api/JSON-crud')))
+      .init(usersFilePath);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,6 +28,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  cookieName: 'session',
+  secret: 'asd123sdfasd*213123asd',
+  activeDuration: 30 * 60 * 1000,
+  httpOnly: true,
+  ephemeral: true,
+}));
+
+app.use(function(req, res, next) {
+  let user;
+  if (req.session && req.session.user) {
+    user = usersApi.findOne('email', req.session.user.email);
+    if (user) {
+      req.user = user;
+      delete req.user.password;
+      req.session.user = req.user;
+      res.locals.user = req.user;
+    }
+  }
+
+  next();
+});
+
+app.use(csrf());
 
 app.use('/', all);
 

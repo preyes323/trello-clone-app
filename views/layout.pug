@@ -9,5 +9,9 @@ html(lang='en-US')
     +javascript_include_tag('vendor/all')
   body
     block header
+      nav.basic-layout.clearfix
+        header
+          a.logo-white(href='/')
+            img(src='/images/trello-logo-white.svg' alt='logo')
 
     block content

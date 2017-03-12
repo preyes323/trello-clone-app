@@ -1,4 +1,22 @@
 extends layout
+
+append header
+
 block content
-  h1= title
-  p Welcome to #{title}
+  form(method="post")
+    h1 Log Into Your Account
+
+    if error
+      p ERROR: #{error}
+
+    input(type="hidden", name="_csrf", value=csrfToken)
+
+    span Email:
+    input(type="email", name="email", required=true)
+    br
+
+    span Password:
+    input(type="password", name="password", required=true)
+    br
+
+    input(type="submit")
