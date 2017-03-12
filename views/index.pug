@@ -1,5 +1,20 @@
 extends layout
 
+block header
+  nav.basic-layout.clearfix
+    header
+      a.logo-white(href='/')
+        img(src='/images/trello-logo-white.svg' alt='logo')
+    section.user-nav
+      a.btn(href='/users/login') Log In
+      a.btn.btn-primary(href='/users/register') Sign Up
+
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container.clearfix
+    main.mod-left.one-third
+      h1.large= title
+      p.
+        Visit the REAL #[a.highlight(href="https://trello.com/") Trello App] for more information about it.
+    aside.mod-left.info-content.two-third
+      p.
+        This is a Trello Clone for a project at #[a(href="https://launchschool.com/") Launch School]. This project uses #[a(href="http://backbonejs.org") Backbone], #[a(href="https://nodejs.org/en/") Node], and JSON data (with custom JSON CRUD api). Here is #[a(href="/about") detailed listing of the technology stack].

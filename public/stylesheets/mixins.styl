@@ -1,12 +1,18 @@
 colors = {
   text: #fff,
+  highlight: #5FB94C,
   background: #026AA7,
   basicNav: {
     bg: #0079BF,
-    buttons: {
-      btn: #026AA7,
-      btnPrimary: #5FB94C
+    btn: {
+      default: #026AA7,
+      primary: #5FB94C,
+      text: #fff
     }
+  },
+  infoContent: {
+    bg: rgba(255, 255, 255, 0.75),
+    text: #026AA7
   }
 }
 
@@ -20,21 +26,23 @@ button()
   display: inline-block
   padding: 5px
   border-radius: 10px
+  font-size: 0.8em
+  line-height: 1.1em
+  margin: 0 0.25em
+  padding: 0.7em 1.3em
   border: none
-  background: colors.btn.default
-  color: colors.btn.text
+  border-radius: 5px
+  background: colors.basicNav.btn.default
+  color: colors.basicNav.btn.text
   text-decoration: none
   outline: none
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.7)
   appearance()
 
-button-add()
-  background: colors.btn.add
-  box-shadow: 2px 2px 0 2px darken(colors.btn.add, 10)
-  transition: box-shadow 200ms ease-in, top 200ms ease-in, left 200ms ease-in
-  &:active
-    top: 2px
-    left: 2px
-    box-shadow: 1px 1px 0 1px darken(colors.btn.add, 10)
+button-primary()
+  font-weight: bold
+  background: colors.basicNav.btn.primary
+  box-shadow: 0 2px 0 0 rgba(0,0,0,0.7)
 
 button-new()
   background: colors.btn.new

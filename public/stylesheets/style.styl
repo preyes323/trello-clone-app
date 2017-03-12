@@ -15,7 +15,6 @@ nav.basic-layout
   background: colors.basicNav.bg
   padding: 20px
   height: 2em
-  overflow: hidden
   header
     float: left
     a.logo-white
@@ -27,3 +26,51 @@ nav.basic-layout
       opacity: 0.8
   section.user-nav
     float: right
+    a.btn
+      button()
+      &.btn-primary
+        button-primary()
+
+.clearfix
+  overflow: hidden
+
+.mod-left
+  float: left
+
+.mod-right
+  float: right
+
+.one-third,
+.two-third,
+  box-sizing: border-box
+  display: block
+
+.one-third
+  width: 33%
+
+.two-third
+  width: 66%
+
+.info-content
+  text-align: center
+  vertical-align: middle
+  p
+    padding: 50px
+    margin: 5px
+    border-radius: 5px
+    color: colors.infoContent.text
+    background: colors.infoContent.bg
+
+main
+  h1.large
+    font-size: 3em
+    text-align: center
+    padding: 15px 50px 10px 50px
+  p
+    padding-left: 60px
+
+.highlight
+  color: colors.highlight
+  &:hover
+    color: lighten(colors.highlight, 20)
+    text-decoration: underline
