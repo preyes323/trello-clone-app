@@ -6,7 +6,18 @@ html(lang='en-US')
     meta(charset='utf-8')
     title= title
     +stylesheet_link_tag('style')
+    +stylesheet_link_tag('app')
     +javascript_include_tag('vendor/all')
   body
-    nav
+    block header
+      nav.app-layout.clearfix
+        header
+          a.logo-white.dashboard(href='/')
+            img(src='/images/trello-logo-white.svg' alt='logo')
+          div.header-boards.header-box.mod-left
+            a.header-btn
+              span Boards
+          div.header-search.header-box.mod-left
+          div.header-user.header-box.mod-right
+
     block content

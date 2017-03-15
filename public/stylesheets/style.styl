@@ -1,5 +1,6 @@
 @import 'meyer_css_reset.css'
 @import 'mixins.styl'
+@import 'trello-images.css'
 
 html,
 body
@@ -74,6 +75,9 @@ form
   h1
     text-align: left
 
+div.container
+  background: colors.background
+
 main
   h1.large
     font-size: 3em
@@ -84,6 +88,6 @@ main
 
 .highlight
   color: colors.highlight
-  &:hover
+  &:phover
     color: lighten(colors.highlight, 20)
     text-decoration: underline

@@ -1,4 +1,5 @@
 @import 'meyer_css_reset.css';
+@import 'trello-images.css';
 html,
 body {
   font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -99,6 +100,9 @@ form {
 form h1 {
   text-align: left;
 }
+div.container {
+  background: #026aa7;
+}
 main h1.large {
   font-size: 3em;
   text-align: center;
@@ -110,7 +114,7 @@ main p {
 .highlight {
   color: #5fb94c;
 }
-.highlight:hover {
+.highlight:phover {
   color: #a1d695;
   text-decoration: underline;
 }

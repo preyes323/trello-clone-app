@@ -7,5 +7,9 @@ module.exports = function(router, requireLogin) {
   const boardsFilePath = path.resolve(path.dirname(__dirname), 'data/boards.json');
   const boardsApi = Object
         .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
-        .init(usersFilePath);
+        .init(boardsFilePath);
+
+  router.get('/dashboard', function(req, res, next) {
+    res.render('dashboard', { title: 'Dashboard' });
+  });
 };

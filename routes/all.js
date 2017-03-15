@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 
 const router = express.Router();
-const routeFiles = ['index', 'users'];
+const routeFiles = ['index', 'users', 'dashboard'];
 
 function requireLogin(req, res, next) {
   if (!req.user) {

@@ -66,8 +66,4 @@ module.exports = function(router, requireLogin) {
       });
     }
   });
-
-  router.get('/dashboard', requireLogin, function(req, res, next) {
-    res.render('dashboard', { title: 'Dashboard' });
-  });
 };
