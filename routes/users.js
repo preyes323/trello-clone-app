@@ -2,6 +2,7 @@ const path = require('path');
 const session = require('client-sessions');
 const bcrypt = require('bcryptjs');
 const csrf = require('csurf');
+const gravatar = require('gravatar');
 
 module.exports = function(router, requireLogin) {
   const usersFilePath = path.resolve(path.dirname(__dirname), 'data/users.json');
@@ -32,9 +33,10 @@ module.exports = function(router, requireLogin) {
     };
 
     if (usersApi.isUnique('email', user.email)) {
+      user.profilePic = gravatar.url(user.email, { s: 30 });
       usersApi.set(user);
       usersApi.record();
-      res.redirect('/dashboard');
+      res.redirect('/users/login');
     } else {
       const error = 'That email is already taken, try another.';
       res.render('register', {
