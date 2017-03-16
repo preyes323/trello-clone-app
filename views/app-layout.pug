@@ -15,9 +15,16 @@ html(lang='en-US')
           a.logo-white.dashboard(href='/')
             img(src='/images/trello-logo-white.svg' alt='logo')
           div.header-boards.header-box.mod-left
-            a.header-btn
+            a.header-btn(href='/boards')
+              span.logo-white.icon logo
               span Boards
           div.header-search.header-box.mod-left
+            input.search-box(type='text')
+            span.icon-lg.icon-search
+            a.icon-lg.icon-external-link.hide(href='/search')
+            span.icon-lg.icon-close.hide
           div.header-user.header-box.mod-right
 
     block content
+
+    +javascript_include_tag('app')

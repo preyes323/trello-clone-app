@@ -6,6 +6,11 @@ nav.app-layout {
   padding: 5px;
   background: #026aa7;
 }
+nav.app-layout span {
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 700;
+}
 nav.app-layout .logo-white.dashboard {
   height: 1.2em;
   opacity: 0.5;
@@ -22,11 +27,93 @@ nav.app-layout .logo-white.dashboard img {
 nav.app-layout .logo-white.dashboard:hover {
   opacity: 0.8;
 }
+nav.app-layout .logo-white.icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  text-indent: 9999px;
+  background: transparent url("/images/logo.png") 0 5px no-repeat;
+  background-size: 20px;
+  margin-right: 2px;
+}
 nav.app-layout .header-box {
   height: 30px;
   background: rgba(255,255,255,0.3);
   border-radius: 3px;
+  box-sizing: border-box;
   vertical-align: middle;
+  opacity: 0.8;
+}
+nav.app-layout .header-box:hover {
+  opacity: 1;
+}
+nav.app-layout .header-boards {
+  padding: 0 5px;
+}
+nav.app-layout .header-search.header-box {
+  position: relative;
+  margin-left: 5px;
+}
+nav.app-layout .header-search.header-box input {
+  height: 30px;
+  position: relative;
+  width: 180px;
+  padding: 0 30px 0 8px;
+  margin: 0;
+  font-size: 13px;
+  opacity: 0;
+  border: none;
+  border-radius: 3px;
+  z-index: 1;
+  transition: width 0.2s ease-in;
+}
+nav.app-layout .header-search.header-box input.focus {
+  opacity: 1;
+  outline: none;
+  width: 318px;
+  padding-right: 54px;
+}
+nav.app-layout .header-search.header-box input.focus ~ .hide {
+  display: inline-block;
+}
+nav.app-layout .header-search.header-box input.focus ~ .icon-search {
+  display: none;
+}
+nav.app-layout .header-search.header-box span,
+nav.app-layout .header-search.header-box a {
+  font-size: 14px;
+  color: #fff;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+}
+nav.app-layout .header-search.header-box span.icon-search,
+nav.app-layout .header-search.header-box a.icon-search {
+  top: 0;
+  right: 0;
+}
+nav.app-layout .header-search.header-box span.icon-close,
+nav.app-layout .header-search.header-box a.icon-close {
+  top: 0;
+  right: 0;
+  color: #ccc;
+}
+nav.app-layout .header-search.header-box span.icon-close:hover,
+nav.app-layout .header-search.header-box a.icon-close:hover {
+  color: #4d4d4d;
+}
+nav.app-layout .header-search.header-box span.icon-external-link,
+nav.app-layout .header-search.header-box a.icon-external-link {
+  top: 0;
+  right: 24px;
+  color: #ccc;
+}
+nav.app-layout .header-search.header-box span.icon-external-link:hover,
+nav.app-layout .header-search.header-box a.icon-external-link:hover {
+  color: #4d4d4d;
+}
+.hide {
+  display: none;
 }
 main.app {
   color: #4d4d4d;

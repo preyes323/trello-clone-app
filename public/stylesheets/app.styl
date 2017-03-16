@@ -6,6 +6,10 @@ body, html
 nav.app-layout
   padding: 5px
   background: colors.appNav.bg
+  span
+    vertical-align: middle
+    font-size: 14px
+    font-weight: 700
   .logo-white.dashboard
     height: 1.2em
     opacity: 0.5
@@ -19,12 +23,73 @@ nav.app-layout
       height: 100%
     &:hover
       opacity: 0.8
+  .logo-white.icon
+    display: inline-block
+    height: 30px
+    width: 30px
+    text-indent: 9999px
+    background: transparent url('/images/logo.png') 0 5px no-repeat
+    background-size: 20px
+    margin-right: 2px
   .header-box
     height: 30px
     background: colors.appNav.header.bg
     border-radius: 3px
+    box-sizing: border-box
     vertical-align: middle
+    opacity: 0.8
+    &:hover
+      opacity: 1
+  .header-boards
+    padding: 0 5px
+  .header-search.header-box
+    position: relative
+    margin-left: 5px
+    input
+      height: 30px
+      position: relative
+      width: 180px
+      padding: 0 30px 0 8px
+      margin: 0
+      font-size: 13px
+      opacity: 0
+      border: none
+      border-radius: 3px
+      z-index: 1
+      transition: width 0.2s ease-in
+      &.focus
+        opacity: 1
+        outline: none
+        width: 318px
+        padding-right: 54px
+        & ~ .hide
+          display: inline-block
+        & ~ .icon-search
+          display: none
+    span, a
+      font-size: 14px
+      color: colors.appNav.header.text
+      position: absolute
+      z-index: 2
+      cursor: pointer
+      &.icon-search
+        top: 0
+        right: 0
+      &.icon-close
+        top: 0
+        right: 0
+        color: colors.appNav.header.darkText
+        &:hover
+          color: darken(colors.appNav.header.darkText, 50)
+      &.icon-external-link
+        top: 0
+        right: 24px
+        color: colors.appNav.header.darkText
+        &:hover
+          color: darken(colors.appNav.header.darkText, 50)
 
+.hide
+  display: none
 
 main.app
   color: colors.app.text
