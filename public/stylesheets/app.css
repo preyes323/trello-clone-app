@@ -133,5 +133,61 @@ nav.app-layout .header-icon {
   display: none;
 }
 main.app {
+  width: 86%;
+  min-width: 960px;
+  margin: 40px auto 0 auto;
   color: #4d4d4d;
+}
+main.app header .boards-section-header {
+  font-size: 1pc;
+  font-weight: 700;
+}
+main.app header span,
+main.app header .boards-section-header {
+  display: inline-block;
+  vertical-align: middle;
+}
+main.app header span {
+  margin-right: 8px;
+}
+main.app li {
+  display: inline-block;
+  width: 24.25%;
+  height: 95px;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  border-radius: 3px;
+  vertical-align: top;
+}
+main.app li a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  font-size: 1pc;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 10px 12px;
+}
+main.app li:nth-of-type(4n) {
+  margin-right: 0;
+}
+main.app li.board {
+  background: #026aa7;
+}
+main.app li.board a {
+  color: #fff;
+}
+main.app li.board:hover {
+  background: #025a8e;
+}
+main.app li.new-board {
+  background: #e2e4e6;
+}
+main.app li.new-board a {
+  color: #8c8c8c;
+  text-align: center;
+  padding-top: 37px;
+}
+main.app li.new-board:hover {
+  background: #d4d7da;
 }

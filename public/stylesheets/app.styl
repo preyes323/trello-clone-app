@@ -103,4 +103,48 @@ nav.app-layout
   display: none
 
 main.app
+  width: 86%
+  min-width: 960px
+  margin: 40px auto 0 auto
   color: colors.app.text
+  header
+    .boards-section-header
+      font-size: 1pc
+      font-weight: 700
+    span, .boards-section-header
+      display: inline-block
+      vertical-align: middle
+    span
+      margin-right: 8px
+  li
+    display: inline-block
+    width: 24.25%
+    height: 95px
+    margin-right: 1%
+    margin-bottom: 1%
+    border-radius: 3px
+    vertical-align: top
+    a
+      height: 100%
+      width: 100%
+      display: block
+      font-size: 1pc
+      font-weight: 700
+      box-sizing: border-box
+      padding: 10px 12px
+    &:nth-of-type(4n)
+      margin-right: 0
+    &.board
+      background: colors.app.boardCard.bg
+      a
+        color: colors.app.boardCard.text
+      &:hover
+        background: darken(colors.app.boardCard.bg, 5)
+    &.new-board
+      background: colors.app.boardCard.bgNew
+      a
+        color: colors.app.boardCard.textNew
+        text-align: center
+        padding-top: 37px
+      &:hover
+        background: darken(colors.app.boardCard.bgNew, 5)
