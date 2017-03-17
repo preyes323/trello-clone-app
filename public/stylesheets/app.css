@@ -6,8 +6,11 @@ nav.app-layout {
   padding: 5px;
   background: #026aa7;
 }
+nav.app-layout img,
 nav.app-layout span {
   vertical-align: middle;
+}
+nav.app-layout span {
   font-size: 14px;
   font-weight: 700;
 }
@@ -42,10 +45,9 @@ nav.app-layout .header-box {
   border-radius: 3px;
   box-sizing: border-box;
   vertical-align: middle;
-  opacity: 0.8;
 }
 nav.app-layout .header-box:hover {
-  opacity: 1;
+  background: rgba(255,255,255,0.4);
 }
 nav.app-layout .header-boards {
   padding: 0 5px;
@@ -111,6 +113,10 @@ nav.app-layout .header-search.header-box a.icon-external-link {
 nav.app-layout .header-search.header-box span.icon-external-link:hover,
 nav.app-layout .header-search.header-box a.icon-external-link:hover {
   color: #4d4d4d;
+}
+nav.app-layout .header-user img {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 .hide {
   display: none;

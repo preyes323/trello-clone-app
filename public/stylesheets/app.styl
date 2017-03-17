@@ -6,8 +6,9 @@ body, html
 nav.app-layout
   padding: 5px
   background: colors.appNav.bg
-  span
+  img, span
     vertical-align: middle
+  span
     font-size: 14px
     font-weight: 700
   .logo-white.dashboard
@@ -37,9 +38,8 @@ nav.app-layout
     border-radius: 3px
     box-sizing: border-box
     vertical-align: middle
-    opacity: 0.8
     &:hover
-      opacity: 1
+      background: colors.appNav.header.bgLight
   .header-boards
     padding: 0 5px
   .header-search.header-box
@@ -87,6 +87,10 @@ nav.app-layout
         color: colors.appNav.header.darkText
         &:hover
           color: darken(colors.appNav.header.darkText, 50)
+  .header-user
+    img
+      border-top-left-radius: 3px
+      border-bottom-left-radius: 3px
 
 .hide
   display: none
