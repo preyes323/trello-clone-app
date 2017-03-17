@@ -5,9 +5,35 @@ append header
 block content
   main.app
     header.clearfix
+      span.icon-lg.icon-star
+      h3.boards-section-header Starred Boards
+    ul.boards#boards-starred
+      li.board(data-id='1')
+        a(href="/boards/id") JavaScript Courses
+          span.icon-sm.icon-star.mod-right
+      li.board(data-id='2')
+        a(href="/boards/id") Welcome Board
+          span.icon-sm.icon-star.mod-right
+      li.board(data-id='3')
+        a(href="/boards/id") Imported Exercises
+      li.board(data-id='4')
+        a(href="/boards/id") LS Tasks
+      li.board(data-id='4')
+        a(href="/boards/id") Board 2
+      li.board(data-id='5')
+        a(href="/boards/id") Board 2
+      li.board(data-id='6')
+        a(href="/boards/id") Board 2
+      li.board(data-id='7')
+        a(href="/boards/id") Board 2
+      li.board(data-id='8')
+        a(href="/boards/id") Board 2
+      li.new-board
+        a(href="/boards/new") Create new board...
+    header.clearfix
       span.icon-lg.icon-member
       h3.boards-section-header Personal Boards
-    ul.boards
+    ul.boards#boards-personal
       li.board
         a(href="/boards/id") JavaScript Courses
       li.board

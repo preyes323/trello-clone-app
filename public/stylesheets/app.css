@@ -163,10 +163,20 @@ main.app li a {
   height: 100%;
   width: 100%;
   display: block;
+  position: relative;
   font-size: 1pc;
   font-weight: 700;
   box-sizing: border-box;
   padding: 10px 12px;
+}
+main.app li a span {
+  font-size: 14px;
+  color: #e6c60d;
+  transition: font-size 0.1s ease-in;
+}
+main.app li a span:hover {
+  font-size: 17px;
+  opacity: 0.8;
 }
 main.app li:nth-of-type(4n) {
   margin-right: 0;
@@ -190,4 +200,12 @@ main.app li.new-board a {
 }
 main.app li.new-board:hover {
   background: #d4d7da;
+}
+main.app #boards-personal li span.hidden-star {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: none;
+  opacity: 0;
+  transition: right 0.2s ease-in, opacity 0.2s;
 }

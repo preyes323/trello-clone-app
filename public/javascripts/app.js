@@ -9,3 +9,29 @@ function removeFocus() {
   $(this).removeClass('focus');
 }
 // end nav view
+
+const starred = document.getElementById('boards-starred');
+const sortableStarred = new Sortable(starred, {
+  group: 'boards',
+  animation: 150,
+  draggable: '.board',
+  onSort(e) {
+    debugger;
+    $(e.to).find('li').each((idx, el) => {
+      let msg = $(el).find('a')[0].text;
+      msg += `; old: ${$(el).data('id')}`;
+      msg += `; new: ${idx + 1}`;
+      console.log(msg);
+    });
+  },
+});
+
+const personal = document.getElementById('boards-personal');
+const sortablePersonal = new Sortable(personal, {
+  group: 'boards',
+  animation: 150,
+  draggable: '.board',
+  onSort(e) {
+    console.log('hello');
+  },
+});
