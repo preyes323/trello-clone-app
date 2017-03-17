@@ -59,7 +59,7 @@ nav.app-layout .header-search.header-box {
 nav.app-layout .header-search.header-box input {
   height: 30px;
   position: relative;
-  width: 180px;
+  width: 150px;
   padding: 0 30px 0 8px;
   margin: 0;
   font-size: 13px;
@@ -114,9 +114,20 @@ nav.app-layout .header-search.header-box span.icon-external-link:hover,
 nav.app-layout .header-search.header-box a.icon-external-link:hover {
   color: #4d4d4d;
 }
+nav.app-layout .header-user {
+  margin: 0 3px;
+}
+nav.app-layout .header-user span {
+  padding: 0 8px;
+}
 nav.app-layout .header-user img {
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+}
+nav.app-layout .header-icon {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 3px;
 }
 .hide {
   display: none;
