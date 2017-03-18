@@ -24,7 +24,7 @@ const App = {
     this.user = new User(user);
     this.navView = new Nav({ model: this.user});
     this.navView.render();
-    this.loadUserBoards();
+    // this.loadUserBoards();
   },
 };
 

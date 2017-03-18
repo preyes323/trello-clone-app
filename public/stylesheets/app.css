@@ -133,6 +133,7 @@ nav.app-layout .header-icon {
   display: none;
 }
 main.app {
+  position: relative;
   width: 86%;
   min-width: 960px;
   margin: 40px auto 0 auto;
@@ -150,7 +151,7 @@ main.app header .boards-section-header {
 main.app header span {
   margin-right: 8px;
 }
-main.app li {
+main.app li.board {
   display: inline-block;
   width: 24.25%;
   height: 95px;
@@ -159,7 +160,7 @@ main.app li {
   border-radius: 3px;
   vertical-align: top;
 }
-main.app li a {
+main.app li.board a {
   height: 100%;
   width: 100%;
   display: block;
@@ -169,36 +170,36 @@ main.app li a {
   box-sizing: border-box;
   padding: 10px 12px;
 }
-main.app li a span {
+main.app li.board a span {
   font-size: 14px;
   color: #e6c60d;
   transition: font-size 0.1s ease-in;
 }
-main.app li a span:hover {
+main.app li.board a span:hover {
   font-size: 17px;
   opacity: 0.8;
 }
-main.app li:nth-of-type(4n) {
+main.app li.board:nth-of-type(4n) {
   margin-right: 0;
 }
-main.app li.board {
+main.app li.board.board {
   background: #026aa7;
 }
-main.app li.board a {
+main.app li.board.board a {
   color: #fff;
 }
-main.app li.board:hover {
+main.app li.board.board:hover {
   background: #025a8e;
 }
-main.app li.new-board {
+main.app li.board.new-board {
   background: #e2e4e6;
 }
-main.app li.new-board a {
+main.app li.board.new-board a {
   color: #8c8c8c;
   text-align: center;
   padding-top: 37px;
 }
-main.app li.new-board:hover {
+main.app li.board.new-board:hover {
   background: #d4d7da;
 }
 main.app #boards-personal li span.hidden-star {
@@ -208,4 +209,77 @@ main.app #boards-personal li span.hidden-star {
   display: none;
   opacity: 0;
   transition: right 0.2s ease-in, opacity 0.2s;
+}
+main.app #boards-search {
+  position: absolute;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.5);
+  padding: 5px;
+  box-sizing: border-box;
+  width: 280px;
+  top: -40px;
+  left: -8%;
+}
+main.app #boards-search span,
+main.app #boards-search li,
+main.app #boards-search a,
+main.app #boards-search input {
+  font-size: 14px;
+}
+main.app #boards-search input.board-search-box {
+  width: 99%;
+  background: #e2e4e6;
+  border-radius: 3px;
+  border: 1px solid #a5acb0;
+  padding: 6px;
+  outline: none;
+  box-sizing: border-box;
+}
+main.app #boards-search input.board-search-box:focus {
+  background: #fff;
+  box-shadow: 0px 0px 2px 1px #4288cc;
+  border: 1px solid #b3b9bc;
+}
+main.app #boards-search header {
+  padding: 10px;
+}
+main.app #boards-search header span {
+  color: #8c8c8c;
+}
+main.app #boards-search ul.search-boards li {
+  display: block;
+  width: 100%;
+}
+main.app #boards-search ul.search-boards a {
+  color: #111;
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 0 9px 46px;
+  background: #e4f0f6;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  line-height: 18px;
+  z-index: 1;
+}
+main.app #boards-search ul.search-boards a span {
+  position: absolute;
+  content: "";
+  height: 36px;
+  width: 36px;
+  background: #5299c3;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+main.app #boards-search ul.search-boards a:hover {
+  background: #d1e5f0;
+}
+main.app #boards-search ul.search-boards a:hover span {
+  background: #418dbb;
 }

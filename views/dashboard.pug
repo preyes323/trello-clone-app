@@ -4,6 +4,22 @@ append header
 
 block content
   main.app
+    div#boards-search
+      input.board-search-box(placeholder="Find boards by name...")
+      section.clearfix
+        header
+          span.icon-sm.icon-board
+          span Personal Boards
+        ul.search-boards
+          li.search-board(data-id='1')
+             a(href="/boards/id") JavaScript Courses
+               span
+          li.search-board(data-id='1')
+             a(href="/boards/id") JavaScript Courses
+               span
+          li.search-board(data-id='1')
+             a(href="/boards/id") JavaScript Courses
+               span
   //-
     header.clearfix
       span.icon-lg.icon-star

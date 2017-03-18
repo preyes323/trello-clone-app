@@ -103,6 +103,7 @@ nav.app-layout
   display: none
 
 main.app
+  position: relative
   width: 86%
   min-width: 960px
   margin: 40px auto 0 auto
@@ -116,7 +117,7 @@ main.app
       vertical-align: middle
     span
       margin-right: 8px
-  li
+  li.board
     display: inline-block
     width: 24.25%
     height: 95px
@@ -165,3 +166,63 @@ main.app
         display: none
         opacity: 0
         transition: right 0.2s ease-in, opacity 0.2s
+  #boards-search
+    position: absolute
+    border-top-right-radius: 3px
+    border-bottom-right-radius: 3px
+    box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.5);
+    padding: 5px
+    box-sizing: border-box
+    width: 280px
+    top: -40px
+    left: -8%
+    span, li, a, input
+      font-size: 14px
+    input.board-search-box
+      width: 99%
+      background: #E2E4E6
+      border-radius: 3px
+      border: 1px solid #A5ACB0
+      padding: 6px
+      outline: none
+      box-sizing: border-box
+      &:focus
+        background: #fff
+        box-shadow: 0px 0px 2px 1px rgba(66,136,204,1)
+        border: 1px solid lighten(#A5ACB0, 5)
+    header
+      padding: 10px
+      span
+        color: colors.boardSearch.textLight
+    ul.search-boards
+      li
+        display: block
+        width: 100%
+      a
+        color: colors.boardSearch.boardText
+        position: relative
+        display: block
+        width: 100%
+        box-sizing: border-box
+        padding: 9px 0 9px 46px
+        background: colors.boardSearch.bg
+        border-radius: 3px
+        margin-bottom: 5px
+        font-weight: bold
+        line-height: 18px
+        z-index: 1
+        span
+          position: absolute
+          content: ""
+          height: 36px
+          width: 36px
+          background: colors.boardSearch.bgTile
+          top: 0
+          left: 0
+          z-index: 2
+          border-top-left-radius: 3px
+          border-bottom-left-radius: 3px
+        &:hover
+          background: darken(colors.boardSearch.bg, 5)
+          span
+            background: darken(colors.boardSearch.bgTile, 5)
