@@ -17,10 +17,13 @@ module.exports = {
   },
 
   getSanitized() {
-    const data = Object.assign({}, this.tempStore).data;
-    data.forEach((user) => {
-      delete user.password;
-      delete user.email;
+    const data = this.tempStore.data.slice();
+    const params = Array.prototype.slice.call(arguments);
+
+    data.forEach((rowData) => {
+      params.forEach((param) => {
+        delete rowData[param];
+      });
     });
 
     return data;
@@ -68,7 +71,7 @@ module.exports = {
   },
 
   findMany(field, value) {
-    const result = _.where(this.tempStore.data, function(data) {
+    const result = _.filter(this.tempStore.data, function(data) {
       return data[field] === value;
     });
 

@@ -6,11 +6,25 @@ const App = {
     });
   },
 
+  loadUserBoards() {
+    $.ajax({
+      url: `/boards/user/${this.user.id}`,
+      method: 'GET',
+      dataType: 'json',
+      success(json) {
+        App.boards = new Boards(json);
+        App.boardsView = new BoardsView({ collection: App.boards });
+        App.boardsView.renderPersonal();
+      },
+    });
+  },
+
   init(user) {
     this.setupTemplates();
     this.user = new User(user);
     this.navView = new Nav({ model: this.user});
     this.navView.render();
+    this.loadUserBoards();
   },
 };
 

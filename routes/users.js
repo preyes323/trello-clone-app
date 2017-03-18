@@ -10,21 +10,20 @@ module.exports = function(router, requireLogin) {
         .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
         .init(usersFilePath);
 
-  // const boardsFilePath = path.resolve(path.dirname(__dirname), 'data/boards.json');
-  // const boardsApi = Object
-  //       .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
-  //       .init(boardsFilePath);
+  const boardsFilePath = path.resolve(path.dirname(__dirname), 'data/boards.json');
+  const boardsApi = Object
+        .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
+        .init(boardsFilePath);
 
-  // function createUserBoard(user) {
-  //   const boardList = {
-  //     type: 'Personal',
-  //     userId: user.id,
-  //     boards: [],
-  //   };
+  function createWelcomeBoard(user) {
+    boardsApi.set({
+      type: 'Personal',
+      userId: user.id,
+      title: 'Welcome Board',
+    });
 
-  //   boardsApi.set(boardList);
-  //   boardsApi.record();
-  // }
+    boardsApi.record();
+  }
 
   router.get('/users/logout', function(req, res, next) {
     req.session.reset();
@@ -51,7 +50,7 @@ module.exports = function(router, requireLogin) {
     if (usersApi.isUnique('email', user.email)) {
       user.profilePic = gravatar.url(user.email, { s: 30 });
       user.handle = `@${user.firstName}${user.lastName}`;
-      usersApi.set(user);
+      createWelcomeBoard(usersApi.set(user));
       usersApi.record();
 
       res.redirect('/users/login');
@@ -89,7 +88,7 @@ module.exports = function(router, requireLogin) {
 
   // REST API
   router.get('/users', function(req, res, next) {
-    const users = usersApi.getSanitized();
+    const users = usersApi.getSanitized('email', 'password');
     return res.json(users);
   });
 

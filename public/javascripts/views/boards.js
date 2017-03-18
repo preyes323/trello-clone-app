@@ -5,9 +5,13 @@ const BoardsView = Backbone.View.extend({
   newBoard: Handlebars.templates.newBoard,
 
   renderPersonal() {
-    if (!this.$('#boards-personal')) {
-      this.$el.html(this.allBoardsTemplate({
-      }));
-    }
+    const personalBoards = _.where(this.collection.toJSON(), { type: 'Personal' });
+
+    this.$el.html(this.allBoardsTemplate({
+      name: 'Personal',
+      boards: personalBoards,
+    }));
+
+    this.$('#boards-personal').append(this.createBoard());
   },
 });

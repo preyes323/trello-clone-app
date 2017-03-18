@@ -12,4 +12,14 @@ module.exports = function(router, requireLogin) {
   router.get('/dashboard', function(req, res, next) {
     res.render('dashboard', { title: 'Dashboard' });
   });
+
+  // REST API
+  router.route('/boards/user/:userId')
+    .all(requireLogin, function(req, res, next) {
+      next();
+    })
+    .get(function(req, res, next) {
+      const userBoards = boardsApi.findMany('userId', parseInt(req.params.userId, 10));
+      res.json(userBoards);
+    });
 };
