@@ -1,3 +1,11 @@
+const App = {
+  init(user) {
+    this.user = new User(user);
+    this.navView = new Nav({ model: this.user});
+    this.navView.render();
+  },
+};
+
 // for nav view
 $('input.search-box').focusin(function() {
   $(this).addClass('focus');
@@ -16,7 +24,6 @@ const sortableStarred = new Sortable(starred, {
   animation: 150,
   draggable: '.board',
   onSort(e) {
-    debugger;
     $(e.to).find('li').each((idx, el) => {
       let msg = $(el).find('a')[0].text;
       msg += `; old: ${$(el).data('id')}`;

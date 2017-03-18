@@ -6,7 +6,6 @@ module.exports = {
   tempStore: {},
   read() {
     this.tempStore = JSON.parse(fs.readFileSync(this.JSONFilePath, 'utf8'));
-    return this.tempStore;
   },
 
   getLastId() {
@@ -14,7 +13,17 @@ module.exports = {
   },
 
   get(id) {
-    return  _(this.tempStore.data).findWhere({ id });
+    return this.findOne('id', id);
+  },
+
+  getSanitized() {
+    const data = Object.assign({}, this.tempStore).data;
+    data.forEach((user) => {
+      delete user.password;
+      delete user.email;
+    });
+
+    return data;
   },
 
   put(data) {

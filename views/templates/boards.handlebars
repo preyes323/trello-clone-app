@@ -1,0 +1,16 @@
+<header class="clearfix">
+  <span class="icon-lg icon-star"></span>
+  <h3 class="boards-section-header">{{name}}</h3>
+</header>
+<ul class="boards" id="boards-{{lowerCase name}}">
+  {{#each boards}}
+    <li class="board" data-id={{id}}>
+      <a href="/boards/{{id}}">
+        {{title}}
+      </a>
+    </li>
+  {{/each}}
+  <li class="new-board">
+    <a href="boards/new">Create new board...</a>
+  </li>
+</ul>

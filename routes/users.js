@@ -34,6 +34,7 @@ module.exports = function(router, requireLogin) {
 
     if (usersApi.isUnique('email', user.email)) {
       user.profilePic = gravatar.url(user.email, { s: 30 });
+      user.handle = `@${user.firstName}${user.lastName}`;
       usersApi.set(user);
       usersApi.record();
       res.redirect('/users/login');
@@ -68,4 +69,19 @@ module.exports = function(router, requireLogin) {
       });
     }
   });
+
+  // REST API
+  router.get('/users', function(req, res, next) {
+    const users = usersApi.getSanitized();
+    return res.json(users);
+  });
+
+  router.route('/users/:userId')
+    .all(requireLogin, function(req, res, next) {
+      next();
+    })
+    .get(function(req, res, next) {
+      const user = usersApi.findOne('id', parseInt(req.params.userId, 10));
+      res.json(user);
+    });
 };

@@ -1,0 +1,24 @@
+<header>
+  <a class="logo-white dashboard" href="/">
+    <img src="/images/trello-logo-white.svg" alt="logo">
+  </a>
+  <div class="header-boards header-box mod-left" data-user={{id}}>
+    <a class="header-btn" href="/boards">
+      <span class="logo-white icon">logo</span><!--
+      --><span>Boards</span>
+    </a>
+  </div>
+  <div class="header-search header-box mod-left" data-user={{id}}>
+    <input class="search-box" type="text">
+    <span class="icon-lg icon-search"></span>
+    <a class="icon-lg icon-external-link hide" href="/search"></a>
+    <span class="icon-lg icon-close hide"></span>
+  </div>
+  <div class="header-box header-icon icon-lg icon-notification mod-right"></div>
+  <div class="header-box header-icon icon-lg icon-information mod-right"></div>
+  <div class="header-user header-box mod-right" data-user={{id}}>
+    <img src="{{profilePic}}" alt="Profile Pic"><!--
+    --><span>{{firstName}} {{lastName}}</span>
+  </div>
+  <div class="header-box header-icon icon-lg icon-add mod-right"></div>
+</header>
