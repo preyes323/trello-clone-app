@@ -39,7 +39,7 @@ module.exports = {
     newData.id = this.tempStore.lastId;
     this.tempStore.data.push(newData);
 
-    return this.tempStore;
+    return newData;
   },
 
   delete(id) {
@@ -60,11 +60,19 @@ module.exports = {
   },
 
   findOne(field, value) {
-    const result = _.find(this.tempStore.data, function(user) {
-      return user[field] === value;
+    const result = _.find(this.tempStore.data, function(data) {
+      return data[field] === value;
     });
 
     return result ? Object.assign({}, result) : undefined;
+  },
+
+  findMany(field, value) {
+    const result = _.where(this.tempStore.data, function(data) {
+      return data[field] === value;
+    });
+
+    return result.slice();
   },
 
   init(filePath) {

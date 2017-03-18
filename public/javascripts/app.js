@@ -1,23 +1,20 @@
 const App = {
+  setupTemplates() {
+    Handlebars.partials = Handlebars.templates;
+    Handlebars.registerHelper('lowerCase', function(name) {
+      return name.toLowerCase();
+    });
+  },
+
   init(user) {
+    this.setupTemplates();
     this.user = new User(user);
     this.navView = new Nav({ model: this.user});
     this.navView.render();
   },
 };
 
-// for nav view
-$('input.search-box').focusin(function() {
-  $(this).addClass('focus');
-});
-
-$('input.search-box').on('focusout', _.debounce(removeFocus, 100));
-
-function removeFocus() {
-  $(this).removeClass('focus');
-}
-// end nav view
-
+// for sorting
 const starred = document.getElementById('boards-starred');
 const sortableStarred = new Sortable(starred, {
   group: 'boards',
@@ -42,3 +39,4 @@ const sortablePersonal = new Sortable(personal, {
     console.log('hello');
   },
 });
+// end for sorting

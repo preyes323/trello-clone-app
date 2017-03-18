@@ -10,6 +10,22 @@ module.exports = function(router, requireLogin) {
         .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
         .init(usersFilePath);
 
+  // const boardsFilePath = path.resolve(path.dirname(__dirname), 'data/boards.json');
+  // const boardsApi = Object
+  //       .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
+  //       .init(boardsFilePath);
+
+  // function createUserBoard(user) {
+  //   const boardList = {
+  //     type: 'Personal',
+  //     userId: user.id,
+  //     boards: [],
+  //   };
+
+  //   boardsApi.set(boardList);
+  //   boardsApi.record();
+  // }
+
   router.get('/users/logout', function(req, res, next) {
     req.session.reset();
     res.redirect('/');
@@ -37,6 +53,7 @@ module.exports = function(router, requireLogin) {
       user.handle = `@${user.firstName}${user.lastName}`;
       usersApi.set(user);
       usersApi.record();
+
       res.redirect('/users/login');
     } else {
       const error = 'That email is already taken, try another.';
