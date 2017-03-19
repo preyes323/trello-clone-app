@@ -194,6 +194,7 @@ main.app li.board.board:hover {
 }
 main.app li.board.new-board {
   background: #e2e4e6;
+  cursor: pointer;
 }
 main.app li.board.new-board span {
   color: #8c8c8c;
@@ -353,6 +354,7 @@ main.app #create-board {
   position: absolute;
   background: #fff;
   border-radius: 3px;
+  top: 15%;
   left: 50%;
   height: 300px;
   margin-left: -225px;
@@ -396,6 +398,9 @@ main.app #create-board form input[type="text"] {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
+}
+main.app #create-board form input[type="submit"] {
+  cursor: pointer;
 }
 main.app #profile {
   position: absolute;

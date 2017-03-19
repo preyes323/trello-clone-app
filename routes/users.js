@@ -33,7 +33,6 @@ module.exports = function(router, requireLogin) {
   router.get('/users/register', function(req, res, next) {
     res.render('register', {
       title: 'Register',
-      csrfToken: req.csrfToken(),
     });
   });
 
@@ -58,7 +57,6 @@ module.exports = function(router, requireLogin) {
       const error = 'That email is already taken, try another.';
       res.render('register', {
         title: 'Register',
-        csrfToken: req.csrfToken(),
         error,
       });
     }
@@ -67,7 +65,6 @@ module.exports = function(router, requireLogin) {
   router.get('/users/login', function(req, res, next) {
     res.render('login', {
       title: 'Login',
-      csrfToken: req.csrfToken(),
     });
   });
 
@@ -80,7 +77,6 @@ module.exports = function(router, requireLogin) {
     } else {
       res.render('login', {
         title: 'Login',
-        csrfToken: req.csrfToken(),
         error: 'Invalid username or password!',
       });
     }

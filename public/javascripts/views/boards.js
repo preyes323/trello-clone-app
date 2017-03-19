@@ -5,10 +5,38 @@ const BoardsView = Backbone.View.extend({
   newBoard: Handlebars.templates.newBoard,
   events: {
     'click .new-board': 'createNewBoard',
+    'submit': 'addBoard',
   },
 
   createNewBoard() {
     App.trigger('createNewBoard');
+  },
+
+  search(e) {
+    alert($(e.target).val());
+  },
+
+  addBoard(e) {
+    e.preventDefault();
+    const $form = $('form');
+
+    const boardData = {
+      title: $form.find(':text').val(),
+      userId: App.user.get('id'),
+      type: 'Personal',
+    };
+
+    $.ajax({
+      url: $form.attr('action'),
+      method: $form.attr('method'),
+      data: boardData,
+      dataType: 'json',
+      success(json) {
+        App.boards.add(json);
+      },
+    });
+
+    $form.closest('div').remove();
   },
 
   renderPersonal() {
@@ -20,5 +48,9 @@ const BoardsView = Backbone.View.extend({
     }));
 
     this.$('#boards-personal').append(this.createBoard());
+  },
+
+  initialize() {
+    this.$el.on('keypress', '.board-search-box', _.debounce(this.search, 200));
   },
 });

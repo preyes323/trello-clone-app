@@ -13,7 +13,18 @@ module.exports = function(router, requireLogin) {
     res.render('dashboard', { title: 'Dashboard' });
   });
 
+  router.post('/boards', function(req, res, next) {
+    res.redirect('/dashboard');
+  });
+
   // REST API
+
+  router.post('/boards/create', function(req, res, next) {
+    const data = req.body;
+    data.userId = parseInt(data.userId, 10);
+    res.json(boardsApi.save(data));
+  });
+
   router.route('/boards/user/:userId')
     .all(requireLogin, function(req, res, next) {
       next();
@@ -21,5 +32,8 @@ module.exports = function(router, requireLogin) {
     .get(function(req, res, next) {
       const userBoards = boardsApi.findMany('userId', parseInt(req.params.userId, 10));
       res.json(userBoards);
+    })
+    .post(function(req, res, next) {
+      console.log(req.body);
     });
 };

@@ -45,6 +45,13 @@ module.exports = {
     return newData;
   },
 
+  save(input) {
+    const newRecord = this.set(input);
+    this.record();
+
+    return newRecord;
+  },
+
   delete(id) {
     const idx = _(this.tempStore.data).findIndex({ id });
     return _.first(this.tempStore.data.splice(idx, 1));

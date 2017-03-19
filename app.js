@@ -49,7 +49,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(csrf());
+// app.use(csrf());
 
 app.use('/', all);
 

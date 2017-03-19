@@ -152,6 +152,7 @@ main.app
         background: darken(colors.app.boardCard.bg, 5)
     &.new-board
       background: colors.app.boardCard.bgNew
+      cursor: pointer
       span
         color: colors.app.boardCard.textNew
         text-align: center
@@ -283,6 +284,7 @@ main.app
     position: absolute
     background: #fff
     border-radius: 3px
+    top: 15%
     left: 50%
     height: 300px
     margin-left: -225px
@@ -318,6 +320,8 @@ main.app
         padding: 8px
         border: 1px solid #ccc
         appearance()
+      input[type="submit"]
+        cursor: pointer
 
   #profile
     position: absolute

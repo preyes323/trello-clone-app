@@ -17,8 +17,7 @@ const App = {
       method: 'GET',
       dataType: 'json',
       success(json) {
-        App.boards = new Boards(json);
-        App.boardsView = new BoardsView({ collection: App.boards });
+        App.boards.reset(json);
         App.boardsView.renderPersonal();
       },
     });
@@ -52,6 +51,7 @@ const App = {
     this.on('showProfilePopup', this.profilePopup.bind(this));
     this.on('createNewBoard', this.boardPopup.bind(this));
     this.on('showNotifications', this.notificationsPopup.bind(this));
+    this.listenTo(this.boards, 'add', this.loadUserBoards.bind(this));
 
     $(document).on('click', 'main.app', function(e) {
       if ($('.pop-up').is(':visible') && (e.target.nodeName === 'MAIN' || e.target.nodeName === 'UL')) {
@@ -88,19 +88,23 @@ const App = {
     });
 
     $(document).on('click', 'a[href^="/"]', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      App.router.navigate($(e.currentTarget).attr('href').replace(/^\//, ''), { trigger: true });
+      if (!(e.target.href && e.target.href.match('logout'))) {
+        e.preventDefault();
+        e.stopPropagation();
+        App.router.navigate($(e.currentTarget).attr('href').replace(/^\//, ''), { trigger: true });
+      }
     });
   },
 
   init(user) {
     _.extend(this, Backbone.Events);
-    this.bindEvents();
     this.setupTemplates();
     this.user = new User(user);
     this.navView = new Nav({ model: this.user});
     this.navView.render();
+    this.boards = new Boards;
+    this.boardsView = new BoardsView({ collection: this.boards });
+    this.bindEvents();
     this.router = new Router;
     this.setupRouter();
   },
