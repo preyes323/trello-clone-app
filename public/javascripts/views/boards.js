@@ -13,7 +13,14 @@ const BoardsView = Backbone.View.extend({
   },
 
   search(e) {
-    alert($(e.target).val());
+    $(e.target).closest('div').find('li').show();
+    $(e.target).closest('div').find('li').each(function() {
+      if ($(this).text().toLowerCase().match($(e.target).val().toLowerCase())) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
+    });
   },
 
   addBoard(e) {
@@ -51,6 +58,6 @@ const BoardsView = Backbone.View.extend({
   },
 
   initialize() {
-    this.$el.on('keypress', '.board-search-box', _.debounce(this.search, 200));
+    this.$el.on('keydown', '.board-search-box', _.debounce(this.search, 500));
   },
 });
