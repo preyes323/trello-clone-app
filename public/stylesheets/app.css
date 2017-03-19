@@ -283,3 +283,167 @@ main.app #boards-search ul.search-boards a:hover {
 main.app #boards-search ul.search-boards a:hover span {
   background: #418dbb;
 }
+main.app #boards-notification {
+  position: absolute;
+  background: #edeff0;
+  border-radius: 3px;
+  top: -38px;
+  right: -7.5%;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 450px;
+  box-shadow: 0px 0px 3px 0px #666;
+}
+main.app #boards-notification header {
+  padding: 9px 32px;
+  margin: 0 10px;
+  border-bottom: 1px solid #d6dadc;
+}
+main.app #boards-notification header > span {
+  display: block;
+  color: #8c8c8c;
+  vertical-align: middle;
+  text-align: center;
+}
+main.app #boards-notification header span.icon-sm {
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  cursor: pointer;
+}
+main.app #boards-notification a,
+main.app #boards-notification span {
+  font-size: 14px;
+  line-height: 18px;
+  color: #4d4d4d;
+}
+main.app #boards-notification span.author {
+  font-weight: 700;
+}
+main.app #boards-notification span.ago {
+  color: #8c8c8c;
+  font-size: 9pt;
+}
+main.app #boards-notification a {
+  text-decoration: underline;
+}
+main.app #boards-notification li {
+  padding: 10px 5px 8px 5px;
+  margin: 0 10px;
+  border-bottom: 1px solid #d6dadc;
+}
+main.app #boards-notification li:last-of-type {
+  border-bottom: none;
+}
+main.app #boards-notification ul > li > img {
+  float: left;
+  margin-right: 3px;
+  border-radius: 3px;
+}
+main.app #boards-notification ul > li span,
+main.app #boards-notification ul > li a {
+  vertical-align: top;
+}
+main.app #create-board {
+  position: absolute;
+  background: #fff;
+  border-radius: 3px;
+  left: 50%;
+  height: 300px;
+  margin-left: -225px;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 450px;
+  box-shadow: 0px 0px 3px 0px #666;
+}
+main.app #create-board header {
+  padding: 9px 32px;
+  margin: 0 10px;
+  border-bottom: 1px solid #d6dadc;
+}
+main.app #create-board header > span {
+  display: block;
+  color: #8c8c8c;
+  vertical-align: middle;
+  text-align: center;
+}
+main.app #create-board header span.icon-sm {
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  cursor: pointer;
+}
+main.app #create-board form label,
+main.app #create-board form input {
+  display: block;
+  margin: 0 0 10px 0;
+}
+main.app #create-board form input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 36px;
+}
+main.app #create-board form input[type="text"] {
+  border-radius: 3px;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+main.app #profile {
+  position: absolute;
+  background: #edeff0;
+  border-radius: 3px;
+  top: -38px;
+  right: -7.5%;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 250px;
+  box-shadow: 0px 0px 3px 0px #666;
+}
+main.app #profile header {
+  padding: 9px 32px;
+  margin: 0 10px;
+  border-bottom: 1px solid #d6dadc;
+}
+main.app #profile header > span {
+  display: block;
+  color: #8c8c8c;
+  vertical-align: middle;
+  text-align: center;
+}
+main.app #profile header span.icon-sm {
+  position: absolute;
+  top: 14px;
+  right: 2px;
+  cursor: pointer;
+}
+main.app #profile a,
+main.app #profile span {
+  font-size: 14px;
+  line-height: 18px;
+  color: #4d4d4d;
+  vertical-align: middle;
+}
+main.app #profile li {
+  padding: 10px 5px 8px 5px;
+  margin: 0 10px;
+  border-bottom: 1px solid #d6dadc;
+}
+main.app #profile li a {
+  height: 100%;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+main.app #profile li:last-of-type {
+  border-bottom: none;
+}
+main.app #profile li:hover {
+  background: #298fca;
+}
+main.app #profile li:hover a {
+  color: #fff;
+}

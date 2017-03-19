@@ -20,6 +20,35 @@ block content
           li.search-board(data-id='1')
              a(href="/boards/id") JavaScript Courses
                span
+    div#boards-notification
+      header.clearfix
+        span Notifications
+        span.icon-sm.icon-close
+      ul.notifications
+        li.notification.clearfix
+          img(src='//www.gravatar.com/avatar/82fa34257e5573cac94e3f59b5a2201b?s=30')
+          span.notification-type.
+            #[span.author Victor Reyes] moved the card #[a(href="/boards/id/lists/id") Add project as assignment type] to #[span.destination Doing] on #[a(href="/boards/id") Development] #[span.ago 2 hours ago]
+        li.notification.clearfix
+          img(src='//www.gravatar.com/avatar/82fa34257e5573cac94e3f59b5a2201b?s=30')
+          span.notification-type.
+            #[span.author Victor Reyes] attached the card #[a(href="/boards/id/lists/id") Add project as assignment type very long asdasd asdasdasd  asdasdasd asdasdasdas asdasdasd] to #[span.destination Doing] on #[a(href="/boards/id") Development] #[span.ago yesterday at 10:56 AM]
+    div#create-board
+      header.clearfix
+        span Create Board
+        span.icon-sm.icon-close
+      form(method="post" action="/boards/create")
+        label Title
+        input(type="text" name="title" placheolder="Like \"Weekly Meal Planning\" for example..")
+        input.btn.btn-primary(type="sumbit" value="Create")
+    div#profile
+      header.clearfix
+        span Victor Reyes
+        span.icon-sm.icon-close
+      ul
+        li: a(href="/users/profile") Profile
+        li: a(href="/users/logout") Logout
+
   //-
     header.clearfix
       span.icon-lg.icon-star

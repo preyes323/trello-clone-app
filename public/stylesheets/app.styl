@@ -226,3 +226,135 @@ main.app
           background: darken(colors.boardSearch.bg, 5)
           span
             background: darken(colors.boardSearch.bgTile, 5)
+  #boards-notification
+    position: absolute
+    background: colors.notifications.bg
+    border-radius: 3px
+    top: -38px
+    right: -7.5%
+    box-sizing: border-box
+    padding: 5px
+    width: 450px
+    box-shadow: 0px 0px 3px 0px rgba(102,102,102,1)
+    header
+      padding: 9px 32px
+      margin: 0 10px
+      border-bottom: 1px solid colors.notifications.border
+    header > span
+      display: block
+      color: colors.notifications.textLight
+      vertical-align: middle
+      text-align: center
+    header span.icon-sm
+      position: absolute
+      top: 14px
+      right: 2px
+      cursor: pointer
+    a, span
+      font-size: 14px
+      line-height: 18px
+      color: colors.notifications.text
+    span.author
+      font-weight: 700
+    span.ago
+      color: colors.notifications.textLight
+      font-size: 9pt
+    a
+      text-decoration: underline
+    li
+      padding: 10px 5px 8px 5px
+      margin: 0 10px
+      border-bottom: 1px solid colors.notifications.border
+      &:last-of-type
+        border-bottom: none
+    ul > li > img
+      float: left
+      margin-right: 3px
+      border-radius: 3px
+    ul > li span, ul > li a
+      vertical-align: top
+
+  #create-board
+    position: absolute
+    background: #fff
+    border-radius: 3px
+    left: 50%
+    height: 300px
+    margin-left: -225px
+    box-sizing: border-box
+    padding: 5px
+    width: 450px
+    box-shadow: 0px 0px 3px 0px rgba(102,102,102,1)
+    header
+      padding: 9px 32px
+      margin: 0 10px
+      border-bottom: 1px solid colors.notifications.border
+    header > span
+      display: block
+      color: colors.notifications.textLight
+      vertical-align: middle
+      text-align: center
+    header span.icon-sm
+      position: absolute
+      top: 14px
+      right: 2px
+      cursor: pointer
+    form
+      label, input
+        display: block
+        margin: 0 0 10px 0
+      input
+        width: 100%
+        box-sizing: border-box
+        height: 36px
+      input[type="text"]
+        border-radius: 3px
+        font-size: 16px
+        padding: 8px
+        border: 1px solid #ccc
+        appearance()
+
+  #profile
+    position: absolute
+    background: colors.notifications.bg
+    border-radius: 3px
+    top: -38px
+    right: -7.5%
+    box-sizing: border-box
+    padding: 5px
+    width: 250px
+    box-shadow: 0px 0px 3px 0px rgba(102,102,102,1)
+    header
+      padding: 9px 32px
+      margin: 0 10px
+      border-bottom: 1px solid colors.notifications.border
+    header > span
+      display: block
+      color: colors.notifications.textLight
+      vertical-align: middle
+      text-align: center
+    header span.icon-sm
+      position: absolute
+      top: 14px
+      right: 2px
+      cursor: pointer
+    a, span
+      font-size: 14px
+      line-height: 18px
+      color: colors.notifications.text
+      vertical-align: middle
+    li
+      padding: 10px 5px 8px 5px
+      margin: 0 10px
+      border-bottom: 1px solid colors.notifications.border
+      a
+        height: 100%
+        width: 100%
+        display: block
+        font-weight: 700
+      &:last-of-type
+        border-bottom: none
+      &:hover
+        background: colors.profile.bgHover
+        a
+          color: colors.profile.textHover
