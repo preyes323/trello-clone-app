@@ -1,4 +1,4 @@
-<div id="boards-search">
+<div id="boards-search" class='pop-up'>
   <input class="board-search-box" placeholder="Find boards by name...">
   <section class="clearfix">
     <header>
@@ -9,7 +9,7 @@
       {{~#each boards~}}
         <li class="search-board" data-id={{id}}>
           <a href="/boards/{{id}}">{{title}}
-            span
+            <span></span>
           </a>
         </li>
       {{~/each~}}

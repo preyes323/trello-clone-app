@@ -1,6 +1,23 @@
 const Nav = Backbone.View.extend({
   el: 'nav.app-layout',
   template: Handlebars.templates.nav,
+  events: {
+    'click .header-user': 'showProfile',
+    'click .icon-add': 'createBoard',
+    'click .icon-notification': 'showNotifications',
+  },
+
+  showProfile() {
+    App.trigger('showProfilePopup');
+  },
+
+  createBoard() {
+    App.trigger('createNewBoard');
+  },
+
+  showNotifications() {
+    App.trigger('showNotifications');
+  },
 
   search(e) {
     $(e.target).addClass('focus');

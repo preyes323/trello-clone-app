@@ -3,6 +3,13 @@ const BoardsView = Backbone.View.extend({
   allBoardsTemplate: Handlebars.templates.boards,
   createBoard: Handlebars.templates.createBoard,
   newBoard: Handlebars.templates.newBoard,
+  events: {
+    'click .new-board': 'createNewBoard',
+  },
+
+  createNewBoard() {
+    App.trigger('createNewBoard');
+  },
 
   renderPersonal() {
     const personalBoards = _.where(this.collection.toJSON(), { type: 'Personal' });
