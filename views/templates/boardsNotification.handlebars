@@ -1,0 +1,16 @@
+<div id="boards-notification">
+  <header class="clearfix">
+    <span>Notifications</span><!--
+    --><span class="icon-sm icon-close"></span>
+  </header>
+  <ul class="notifications">
+    {{~#each notifications~}}
+      <li class="notification clearfix">
+        <img src="{{profilePic}}">
+        <span class="notification-{{type}}">
+          <span class="author">{{firstName}} {{lastName}}</span>{{action}}</span> <a href="/baords/{{id}}/cards/{{cardId}}">{{cardTitle}}</a> {{prePosition}} {{listTitle}} on <a href="/boards/{{id}}">{{boardTitle}}</a> <span class="ago">{{timePassed}}</span>
+        </span>
+      </li>
+    {{~/each~}}
+  </ul>
+</div>

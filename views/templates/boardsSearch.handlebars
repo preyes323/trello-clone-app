@@ -1,0 +1,18 @@
+<div id="boards-search">
+  <input class="board-search-box" placeholder="Find boards by name...">
+  <section class="clearfix">
+    <header>
+      <span class="icon-sm icon-board"></span>
+      <span>Personal Boards</span>
+    </header>
+    <ul class="search-boards">
+      {{~#each boards~}}
+        <li class="search-board" data-id={{id}}>
+          <a href="/boards/{{id}}">{{title}}
+            span
+          </a>
+        </li>
+      {{~/each~}}
+    </ul>
+  </section>
+</div>
