@@ -19,7 +19,7 @@ module.exports = function(router, requireLogin) {
         .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
         .init(cardsFilePath);
 
-  router.get('/dashboard', function(req, res, next) {
+  router.get('/dashboard', requireLogin, function(req, res, next) {
     res.render('dashboard', { title: 'Dashboard' });
   });
 
