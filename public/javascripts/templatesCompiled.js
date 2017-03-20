@@ -5,7 +5,7 @@ templates['boardListsHeader'] = template({"compiler":[7,">= 4.0.0"],"main":funct
 
   return "<header id=\"boards-header\" class=\"clearfix\">\n  <span class=\"board-title largae-board-header\">"
     + container.escapeExpression(((helper = (helper = helpers.boardTitle || (depth0 != null ? depth0.boardTitle : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"boardTitle","hash":{},"data":data}) : helper)))
-    + "</span>\n  <span class=\"board-menu small-board-header mod-right\">\n    <span class=\"icon-sm icon-overflow-menu-horizontal\"></span>\n    <span class=\"underline\">Show Menu</span>\n  </span>\n  <span class=\"board-subscription small-board-header mod-right\">\n    <span class=\"icon-sm icon-subscribe\"></span>\n    <span class=\"underline\">Subscribed</span>\n  </span>\n</header>";
+    + "</span>\n  <span class=\"board-menu small-board-header mod-right\">\n    <span class=\"icon-sm icon-overflow-menu-horizontal\"></span><!--\n    --><span class=\"underline\">Show Menu</span>\n  </span>\n  <span class=\"board-subscription small-board-header mod-right\">\n    <span class=\"icon-sm icon-subscribe\"></span><!--\n    --><span class=\"underline\">Subscribed</span>\n  </span>\n</header>";
 },"useData":true});
 templates['boards'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
@@ -103,7 +103,9 @@ templates['lists'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n        <header class=\"clearfix\">\n          <input class=\"list-name\" value=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "\">\n          <span class=\"icon-sm icon-overflow-menu-horizontal list-menu\"></span>\n        </header>\n        <ul class=\"cards\">\n"
+    + "\">\n          <span class=\"icon-sm icon-overflow-menu-horizontal list-menu\"></span>\n        </header>\n        <ul class=\"cards\" data-id=\""
+    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
+    + "\">\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.cards : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </ul>\n        <p>Add a card...</p>\n      </li>\n";
 },"2":function(container,depth0,helpers,partials,data) {

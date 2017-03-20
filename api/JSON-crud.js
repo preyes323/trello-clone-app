@@ -30,7 +30,10 @@ module.exports = {
   },
 
   put(data) {
-    const foundData = this.get(data.id);
+    const foundData = _.find(this.tempStore.data, function(rowData) {
+      return rowData.id === data.id;
+    });
+
     if (!foundData) return false;
     Object.assign(foundData, data);
     return true;

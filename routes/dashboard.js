@@ -34,19 +34,36 @@ module.exports = function(router, requireLogin) {
     res.json(boardsApi.save(data));
   });
 
-  router.get('/boards/lists/:boardId', function(req, res, next) {
-    const boardId = parseInt(req.params.boardId, 10);
-    const data = listsApi.findMany('boardId', boardId);
-    console.log(data);
-    res.json(data);
-  });
+  router.route('/boards/lists/:boardId')
+    .get(function(req, res, next) {
+      const boardId = parseInt(req.params.boardId, 10);
+      const data = listsApi.findMany('boardId', boardId);
+      res.json(data);
+    })
+    .patch(function(req, res, next) {
+      const data = req.body;
+      data.id = parseInt(data.id, 10);
+      data.listPos = parseInt(data.listPos, 10);
+      listsApi.put(data);
+      listsApi.record();
+      res.status(200).end();
+    });
 
-  router.get('/boards/lists/cards/:listId', function(req, res, next) {
-    const listId = parseInt(req.params.listId, 10);
-    const data = cardsApi.findMany('listId', listId);
-    console.log(data);
-    res.json(data);
-  });
+  router.route('/boards/lists/cards/:listId')
+    .get(function(req, res, next) {
+      const listId = parseInt(req.params.listId, 10);
+      const data = cardsApi.findMany('listId', listId);
+      res.json(data);
+    })
+    .patch(function(req, res, next) {
+      const data = req.body;
+      data.id = parseInt(data.id, 10);
+      data.cardPos = parseInt(data.cardPos, 10);
+      data.listId = parseInt(data.listId, 10);
+      cardsApi.put(data);
+      cardsApi.record();
+      res.status(200).end();
+    });
 
   router.route('/boards/user/:userId')
     .all(requireLogin, function(req, res, next) {

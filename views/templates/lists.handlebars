@@ -6,7 +6,7 @@
           <input class="list-name" value="{{title}}">
           <span class="icon-sm icon-overflow-menu-horizontal list-menu"></span>
         </header>
-        <ul class="cards">
+        <ul class="cards" data-id="{{id}}">
           {{#each cards}}
             <li class="card" data-pos="{{cardPos}}" data-id="{{id}}">{{title}}</li>
           {{/each}}
