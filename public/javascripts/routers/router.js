@@ -2,6 +2,7 @@ const Router = Backbone.Router.extend({
   routes: {
     'boards': 'showBoardsSearch',
     'dashboard': 'dashHome',
+    'boards/:boardId': 'loadBoard',
   },
 
   showBoardsSearch() {
@@ -10,6 +11,10 @@ const Router = Backbone.Router.extend({
 
   dashHome() {
     App.trigger('showDashboard');
+  },
+
+  loadBoard(boardId) {
+    App.trigger('showBoardList', boardId);
   },
 
   initialize() {

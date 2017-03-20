@@ -5,6 +5,13 @@ html {
 nav.app-layout {
   padding: 5px;
   background: #026aa7;
+  position: fixed;
+  height: 40px;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  box-sizing: border-box;
 }
 nav.app-layout img,
 nav.app-layout span {
@@ -133,12 +140,14 @@ nav.app-layout .header-icon {
   display: none;
 }
 main.app {
+  margin-top: 40px;
   position: relative;
   width: 86%;
   min-width: 960px;
   min-height: 800px;
   padding: 40px 7% 0 7%;
   color: #4d4d4d;
+  z-index: 1;
 }
 main.app header .boards-section-header {
   font-size: 1pc;
@@ -223,7 +232,7 @@ main.app #boards-search {
   padding: 5px;
   box-sizing: border-box;
   width: 280px;
-  top: 0;
+  top: 10px;
   left: 0;
   background: #fff;
 }
@@ -293,7 +302,7 @@ main.app #boards-notification {
   position: absolute;
   background: #edeff0;
   border-radius: 3px;
-  top: 0;
+  top: 10px;
   right: 0;
   box-sizing: border-box;
   padding: 5px;
@@ -406,7 +415,7 @@ main.app #profile {
   position: absolute;
   background: #edeff0;
   border-radius: 3px;
-  top: 0;
+  top: 10px;
   right: 0;
   box-sizing: border-box;
   padding: 5px;
@@ -457,12 +466,111 @@ main.app #profile li:hover {
 main.app #profile li:hover a {
   color: #fff;
 }
-.overlay {
-  z-index: -1;
-  position: absolute;
+main.app #boards-header {
+  position: fixed;
+  height: 45px;
+  margin-top: 40px;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  opacity: 1;
+  right: 0;
+  background: #0079bf;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 8px 4px 8px 8px;
+}
+main.app #boards-header .large-board-header {
+  font-size: 18px;
+  line-height: 30px;
+  padding-left: 4px;
+  font-weight: 700;
+}
+main.app #boards-header .small-board-header {
+  font-size: 9pt;
+  height: 30px;
+  padding: 4px 3px 3px 3px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-decoration: underline;
+  cursor: pointer;
+}
+main.app #boards-header .small-board-header span {
+  color: #fff;
+}
+main.app #boards-header .small-board-header:hover {
+  background: #0069a6;
+}
+main.app #lists li.list {
+  width: 270px;
+  min-height: 80px;
+  background: #e2e4e6;
+  display: block;
+  float: left;
+  color: #4d4d4d;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+main.app #lists li.list header {
+  height: 35px;
+  box-sizing: border-box;
+  padding: 4px 8px 3px 8px;
+  position: relative;
+}
+main.app #lists li.list header .list-name {
+  box-sizing: border-box;
+  padding: 2px 12px 2px 2px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  font-size: 14px;
+  background: #e2e4e6;
+  border: none;
+  height: 28px;
+  width: 220px;
+  font-weight: 700;
+  border-radius: 3px;
+}
+main.app #lists li.list header .list-name:focus {
+  background: #fff;
+}
+main.app #lists li.list header .list-menu {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  height: 28px;
+  width: 30px;
+  border-radius: 3px;
+  padding: 5px 2px 5px 2px;
+  box-sizing: border-box;
+}
+main.app #lists li.list header .list-menu:hover {
+  background: #d4d7da;
+}
+main.app #lists li.list ul.cards {
+  padding: 2px 8px;
+  display: block;
+}
+main.app #lists li.list ul.cards li.card {
+  display: block;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: 0px 1px 1px 0px #646464;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+main.app #lists li.list p {
+  font-size: 12px;
+  padding: 10px;
+  color: #a6a6a6;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+main.app #lists li.list p:hover {
+  background: #d4d7da;
+}
+.underline {
+  text-decoration: underline;
 }

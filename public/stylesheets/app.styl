@@ -6,6 +6,13 @@ body, html
 nav.app-layout
   padding: 5px
   background: colors.appNav.bg
+  position: fixed
+  height: 40px
+  top: 0
+  right: 0
+  left: 0
+  z-index: 3
+  box-sizing: border-box
   img, span
     vertical-align: middle
   span
@@ -103,12 +110,14 @@ nav.app-layout
   display: none
 
 main.app
+  margin-top: 40px
   position: relative
   width: 86%
   min-width: 960px
   min-height: 800px
   padding: 40px 7% 0 7%
   color: colors.app.text
+  z-index: 1
   header
     .boards-section-header
       font-size: 1pc
@@ -179,7 +188,7 @@ main.app
     padding: 5px
     box-sizing: border-box
     width: 280px
-    top: 0
+    top: 10px
     left: 0
     background: colors.boardSearch.bg
     span, li, a, input
@@ -236,7 +245,7 @@ main.app
     position: absolute
     background: colors.notifications.bg
     border-radius: 3px
-    top: 0
+    top: 10px
     right: 0
     box-sizing: border-box
     padding: 5px
@@ -327,7 +336,7 @@ main.app
     position: absolute
     background: colors.notifications.bg
     border-radius: 3px
-    top: 0
+    top: 10px
     right: 0
     box-sizing: border-box
     padding: 5px
@@ -367,12 +376,96 @@ main.app
         background: colors.profile.bgHover
         a
           color: colors.profile.textHover
+  #boards-header
+    position: fixed
+    height: 45px
+    margin-top: 40px
+    top: 0
+    left: 0
+    right: 0
+    background: colors.listsView.bg
+    color: colors.listsView.text
+    box-sizing: border-box
+    padding: 8px 4px 8px 8px
+    .large-board-header
+      font-size: 18px
+      line-height: 30px
+      padding-left: 4px
+      font-weight: 700
+    .small-board-header
+      font-size: 9pt
+      height: 30px
+      padding: 4px 3px 3px 3px
+      border-radius: 3px
+      box-sizing: border-box
+      text-decoration: underline
+      cursor: pointer
+      span
+        color: colors.listsView.text
+      &:hover
+        background: darken(colors.listsView.bg, 5)
+  #lists
+    li.list
+      width: 270px
+      min-height: 80px
+      background: colors.listsView.list
+      display: block
+      float: left
+      color: colors.listsView.listText
+      border-radius: 3px
+      margin-right: 10px
+      header
+        height: 35px
+        box-sizing: border-box
+        padding: 4px 8px 3px 8px
+        position: relative
+        .list-name
+          box-sizing: border-box
+          padding: 2px 12px 2px 2px
+          appearance()
+          outline: none
+          font-size: 14px
+          background: colors.listsView.list
+          border: none
+          height: 28px
+          width: 220px
+          font-weight: 700
+          border-radius: 3px
+          &:focus
+            background: #fff
+        .list-menu
+          position: absolute
+          top: 4px
+          right: 2px
+          height: 28px
+          width: 30px
+          border-radius: 3px
+          padding: 5px 2px 5px 2px
+          box-sizing: border-box
+          &:hover
+            background: darken(colors.listsView.list, 5)
+      ul.cards
+        padding: 2px 8px
+        display: block
+        li.card
+          display: block
+          box-sizing: border-box
+          padding: 8px
+          font-size: 14px
+          background: colors.listsView.card
+          box-shadow: 0px 1px 1px 0px rgba(100,100,100,1)
+          border: none
+          border-radius: 3px
+          margin-bottom: 5px
+      p
+        font-size: 12px
+        padding: 10px
+        color: lighten(colors.listsView.listText, 35)
+        border-bottom-left-radius: 3px
+        border-bottom-right-radius: 3px
+        &:hover
+          background: darken(colors.listsView.list, 5)
 
-.overlay
-  z-index: -1
-  position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  opacity: 1
+
+.underline
+  text-decoration: underline

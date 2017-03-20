@@ -84,7 +84,7 @@ module.exports = function(router, requireLogin) {
 
   // REST API
   router.get('/users', function(req, res, next) {
-    const users = usersApi.getSanitized('email', 'password');
+    const users = usersApi.getSanitized('email');
     return res.json(users);
   });
 

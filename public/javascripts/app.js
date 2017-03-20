@@ -12,6 +12,7 @@ const App = {
   },
 
   loadUserBoards() {
+    this.styleForDashboard();
     $.ajax({
       url: `/boards/user/${this.user.id}`,
       method: 'GET',
@@ -19,6 +20,46 @@ const App = {
       success(json) {
         App.boards.reset(json);
         App.boardsView.renderPersonal();
+      },
+    });
+  },
+
+  setupBoardList(boardId) {
+    this.getBoardList(boardId);
+    this.styleForBoardList();
+  },
+
+  styleForDashboard() {
+    this.$main.css({
+      'margin-top': '40px',
+      width: '86%',
+      padding: '40px 7% 0 7%',
+      'min-width': '960px',
+      background: '#fff',
+      color: '#4d4d4d',
+    });
+  },
+
+  styleForBoardList() {
+    this.$main.css({
+      background: '#0079BF',
+      color: '#fff',
+      padding: '10px',
+      width: '1600px',
+      'margin-top': '85px',
+    });
+  },
+
+  getBoardList(boardId) {
+    $.ajax({
+      url: `/boards/lists/${boardId}`,
+      method: 'GET',
+      dataType: 'json',
+      success(json) {
+        App.lists.reset(json);
+        App.lists.each((list) => {
+          list.trigger('getCards');
+        });
       },
     });
   },
@@ -51,6 +92,7 @@ const App = {
     this.on('showProfilePopup', this.profilePopup.bind(this));
     this.on('createNewBoard', this.boardPopup.bind(this));
     this.on('showNotifications', this.notificationsPopup.bind(this));
+    this.on('showBoardList', this.setupBoardList.bind(this));
     this.listenTo(this.boards, 'add', this.loadUserBoards.bind(this));
 
     $(document).on('click', 'main.app', function(e) {
@@ -103,6 +145,7 @@ const App = {
     this.navView = new Nav({ model: this.user});
     this.navView.render();
     this.boards = new Boards;
+    this.lists = new Lists;
     this.boardsView = new BoardsView({ collection: this.boards });
     this.bindEvents();
     this.router = new Router;

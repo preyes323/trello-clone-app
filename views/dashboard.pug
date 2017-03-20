@@ -4,6 +4,58 @@ append header
 
 block content
   main.app
+    header#boards-header.clearfix
+      span.board-title.large-board-header JavaScript Courses
+      span.board-menu.small-board-header.mod-right
+        span.icon-sm.icon-overflow-menu-horizontal
+        span.underline Show Menu
+      span.board-subscription.small-board-header.mod-right
+        span.icon-sm.icon-subscribe
+        span.underline Subscribed
+    div.lists-container
+      ul#lists
+        li.list(data-pos="1" data-id=1)
+          header.clearfix
+            input.list-name(value="To Do")
+            span.icon-sm.icon-overflow-menu-horizontal.list-menu
+          ul.cards
+            li.card(data-pos="1" data-id=1) Task1
+            li.card(data-pos="2" data-id=2) Task2
+            li.card(data-pos="3" data-id=3) Task3
+            li.card(data-pos="4" data-id=4) Task4
+            li.card(data-pos="5" data-id=5) Task5
+            li.card(data-pos="6" data-id=6) Task6
+            li.card(data-pos="7" data-id=7) Task7
+            li.card(data-pos="8" data-id=8) Task8
+          p Add a card...
+        li.list(data-pos="2" data-id=1)
+          header.clearfix
+            input.list-name(value="Completed")
+            span.icon-sm.icon-overflow-menu-horizontal.list-menu
+          ul.cards
+            li.card(data-pos="1" data-id=1) Task1
+            li.card(data-pos="2" data-id=2) Task2
+            li.card(data-pos="3" data-id=3) Task3
+            li.card(data-pos="4" data-id=4) Task4
+            li.card(data-pos="5" data-id=5) Task5
+            li.card(data-pos="6" data-id=6) Task6
+            li.card(data-pos="7" data-id=7) Task7
+            li.card(data-pos="8" data-id=8) Task8
+          p Add a card...
+        li.list(data-pos="3" data-id=3)
+          header.clearfix
+            input.list-name(value="In Progress")
+            span.icon-sm.icon-overflow-menu-horizontal.list-menu
+          ul.cards
+            li.card(data-pos="1" data-id=1) Task1
+            li.card(data-pos="2" data-id=2) Task2
+            li.card(data-pos="3" data-id=3) Task3
+            li.card(data-pos="4" data-id=4) Task4
+            li.card(data-pos="5" data-id=5) Task5
+            li.card(data-pos="6" data-id=6) Task6
+            li.card(data-pos="7" data-id=7) Task7
+            li.card(data-pos="8" data-id=8) Task8
+          p Add a card...
   //-
     div#boards-search
       input.board-search-box(placeholder="Find boards by name...")
