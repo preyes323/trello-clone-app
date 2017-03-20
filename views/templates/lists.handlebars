@@ -1,0 +1,18 @@
+<div class="lists-container">
+  <ul id="lists">
+    {{#each lists}}
+      <li class="list" data-pos="{{listPos}}" data-id="{{id}}">
+        <header class="clearfix">
+          <input class="list-name" value="{{title}}">
+          <span class="icon-sm icon-overflow-menu-horizontal list-menu"></span>
+        </header>
+        <ul class="cards">
+          {{#each cards}}
+            <li class="card" data-pos="{{cardPos}}" data-id="{{id}}">{{title}}</li>
+          {{/each}}
+        </ul>
+        <p>Add a card...</p>
+      </li>
+    {{/each}}
+  </ul>
+</div>
