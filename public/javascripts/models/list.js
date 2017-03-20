@@ -10,8 +10,8 @@ const List = Backbone.Model.extend({
   },
 
   setCards(json) {
-    debugger;
     this.cards.reset(json);
+    App.lists.trigger('cardsUpdated', this.get('id'));
   },
 
   initialize() {

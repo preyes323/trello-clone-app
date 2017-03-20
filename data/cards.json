@@ -5,13 +5,13 @@
       "id": 1,
       "title": "Task1",
       "listId": 1,
-      "cardPos": 1
+      "cardPos": 5
     },
     {
       "id": 2,
       "title": "Task2",
       "listId": 1,
-      "cardPos": 2
+      "cardPos": 4
     },
     {
       "id": 3,
@@ -23,13 +23,13 @@
       "id": 4,
       "title": "Task5",
       "listId": 1,
-      "cardPos": 4
+      "cardPos": 2
     },
     {
       "id": 5,
       "title": "Task4",
       "listId": 1,
-      "cardPos": 5
+      "cardPos": 1
     },
     {
       "id": 6,

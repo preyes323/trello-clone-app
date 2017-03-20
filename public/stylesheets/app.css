@@ -473,6 +473,7 @@ main.app #boards-header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 2;
   background: #0079bf;
   color: #fff;
   box-sizing: border-box;
@@ -498,6 +499,9 @@ main.app #boards-header .small-board-header span {
 }
 main.app #boards-header .small-board-header:hover {
   background: #0069a6;
+}
+main.app #lists {
+  z-index: 0;
 }
 main.app #lists li.list {
   width: 270px;

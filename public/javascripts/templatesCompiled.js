@@ -3,9 +3,9 @@
 templates['boardListsHeader'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
-  return "<header id=\"boards-header\" class=\"clearfix\">\n  <span class=\"board-title large-board-header>"
+  return "<header id=\"boards-header\" class=\"clearfix\">\n  <span class=\"board-title largae-board-header\">"
     + container.escapeExpression(((helper = (helper = helpers.boardTitle || (depth0 != null ? depth0.boardTitle : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"boardTitle","hash":{},"data":data}) : helper)))
-    + "</span>\n  <span class=\"board-menu small-board-header mod-right>\n    <span class=\"icon-sm icon-overflow-menu-horizontal\"></span>\n    <span class=\"underline\">Show Menu</span>\n  </span>\n  <span class=\"board-subscription small-board-header mod-right\">\n    <span class=\"icon-sm icon-subscribe\"></span>\n    <span class=\"underline\">Subscribed</span>\n  </span>\n</header>";
+    + "</span>\n  <span class=\"board-menu small-board-header mod-right\">\n    <span class=\"icon-sm icon-overflow-menu-horizontal\"></span>\n    <span class=\"underline\">Show Menu</span>\n  </span>\n  <span class=\"board-subscription small-board-header mod-right\">\n    <span class=\"icon-sm icon-subscribe\"></span>\n    <span class=\"underline\">Subscribed</span>\n  </span>\n</header>";
 },"useData":true});
 templates['boards'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;

@@ -9,6 +9,7 @@ const App = {
     this.profileTemplate = Handlebars.templates.profile;
     this.createNewBoardTemplate = Handlebars.templates.create;
     this.notificationsTemplate = Handlebars.templates.boardsNotification;
+    this.boardListsHeaderTemplate = Handlebars.templates.boardListsHeader;
   },
 
   loadUserBoards() {
@@ -27,6 +28,7 @@ const App = {
   setupBoardList(boardId) {
     this.getBoardList(boardId);
     this.styleForBoardList();
+    this.renderBoardListHeader(boardId);
   },
 
   styleForDashboard() {
@@ -60,6 +62,7 @@ const App = {
         App.lists.each((list) => {
           list.trigger('getCards');
         });
+        App.listsView = new ListsView({ collection: App.lists });
       },
     });
   },
@@ -82,6 +85,12 @@ const App = {
   notificationsPopup() {
     $('.pop-up').remove();
     this.$main.append(this.notificationsTemplate());
+  },
+
+  renderBoardListHeader(boardId) {
+    this.$main.html(this.boardListsHeaderTemplate({
+      boardTitle: this.boards.get(boardId).get('title'),
+    }));
   },
 
   bindEvents() {
