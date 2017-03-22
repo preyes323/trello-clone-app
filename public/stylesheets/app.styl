@@ -36,7 +36,7 @@ nav.app-layout
     height: 30px
     width: 30px
     text-indent: 9999px
-    background: transparent url('/images/logo.png') 0 5px no-repeat
+    background: transparent url('/images/logo.png') 0 6px no-repeat
     background-size: 20px
     margin-right: 2px
   .header-box
@@ -474,3 +474,80 @@ main.app
 
 .underline
   text-decoration: underline
+
+#new-list
+  background: colors.newList.bg
+  box-sizing: border-box
+  width: 270px
+  float: left
+  border-radius: 3px
+  input
+    outline: none
+    font-size: 14px
+    color: #fff
+    background: colors.newList.bg
+    border: none
+    padding: 12px 8px
+    vertical-align: middle
+    height: 100%
+    width: 100%
+    box-sizing: border-box
+    border-radius: 3px
+    display: block
+    placeholder(colors.newList.text)
+    appearance()
+    &:hover
+      background: darken(colors.newList.bg, 5)
+  .save
+    display: none
+  &:hover
+    background: darken(colors.newList.bg, 5)
+  &.add-list
+    background: colors.listsView.list
+    color: colors.listsView.text
+    padding: 3px 3px 5px 3px
+    input
+      background: #D7D9DB
+      border: 1px solid #AAA
+      padding: 8px
+      color: #8C8C8C
+      margin-bottom: 3px
+      placeholder(#8C8C8C)
+      box-shadow: inset 0px 0px 1px 0 rgba(0,0,0,0.5)
+    .save
+      display: block
+      .btn, span
+        vertical-align: middle
+        cursor: pointer
+      .btn
+        height: 30px
+        font-size: 14px
+        padding: 5px 12px
+        margin-left: 0px
+
+#new-card
+  box-sizing: border-box
+  padding: 0 8px 8px 8px
+  textarea
+    border-radius: 3px
+    appearance()
+    outline: none
+    border: none
+    height: 65px
+    width: 100%
+    padding: 8px
+    font-size: 14px
+    box-sizing: border-box
+    box-shadow: 0px 1px 1px 0px rgba(100,100,100,1)
+  .save
+    display: block
+    .btn, span
+      vertical-align: middle
+      cursor: pointer
+    .btn
+      height: 30px
+      font-size: 14px
+      padding: 5px 12px
+      margin-left: 0px
+
+

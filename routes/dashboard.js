@@ -47,6 +47,13 @@ module.exports = function(router, requireLogin) {
       listsApi.put(data);
       listsApi.record();
       res.status(200).end();
+    })
+    .post(function(req, res, next) {
+      const boardId = parseInt(req.params.boardId);
+      const data = req.body;
+      data.boardId = boardId;
+      data.listPos = parseInt(data.listPos, 10);
+      res.json(listsApi.save(data));
     });
 
   router.route('/boards/lists/cards/:listId')
@@ -63,7 +70,15 @@ module.exports = function(router, requireLogin) {
       cardsApi.put(data);
       cardsApi.record();
       res.status(200).end();
+    })
+    .post(function(req, res, next) {
+      const data = req.body;
+      const listId = parseInt(req.params.listId, 10);
+      data.listId = listId;
+      data.listPos = parseInt(data.listPos, 10);
+      res.json(cardsApi.save(data));
     });
+
 
   router.route('/boards/user/:userId')
     .all(requireLogin, function(req, res, next) {

@@ -5,6 +5,7 @@ const Nav = Backbone.View.extend({
     'click .header-user': 'showProfile',
     'click .icon-add': 'createBoard',
     'click .icon-notification': 'showNotifications',
+    'click .header-boards': 'showBoardsSearch',
   },
 
   showProfile() {
@@ -21,6 +22,10 @@ const Nav = Backbone.View.extend({
 
   search(e) {
     $(e.target).addClass('focus');
+  },
+
+  showBoardsSearch() {
+    App.trigger('showBoardSearch');
   },
 
   removeFocus(e) {

@@ -1,5 +1,8 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['addCard'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<p>Add a card...</p>";
+},"useData":true});
 templates['boardListsHeader'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper;
 
@@ -130,7 +133,7 @@ templates['nav'] = template({"compiler":[7,">= 4.0.0"],"main":function(container
 
   return "<header>\n  <a class=\"logo-white dashboard\" href=\"/\">\n    <img src=\"/images/trello-logo-white.svg\" alt=\"logo\">\n  </a>\n  <div class=\"header-boards header-box mod-left\" data-user="
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + ">\n    <a class=\"header-btn\" href=\"/boards\">\n      <span class=\"logo-white icon\">logo</span><!--\n      --><span>Boards</span>\n    </a>\n  </div>\n  <div class=\"header-search header-box mod-left\" data-user="
+    + ">\n    <span class=\"header-btn\">\n      <span class=\"logo-white icon\">logo</span><!--\n      --><span>Boards</span>\n    </span>\n  </div>\n  <div class=\"header-search header-box mod-left\" data-user="
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + ">\n    <input class=\"search-box\" type=\"text\">\n    <span class=\"icon-lg icon-search\"></span>\n    <a class=\"icon-lg icon-external-link hide\" href=\"/search\"></a>\n    <span class=\"icon-lg icon-close hide\"></span>\n  </div>\n  <div class=\"header-box header-icon icon-lg icon-notification mod-right\"></div>\n  <div class=\"header-user header-box mod-right\" data-user="
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
@@ -152,6 +155,12 @@ templates['newBoard'] = template({"compiler":[7,">= 4.0.0"],"main":function(cont
     + "\">\n    "
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
     + "\n  </a>\n</li>";
+},"useData":true});
+templates['newCard'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div id=\"new-card\">\n  <textarea></textarea>\n  <div class=\"save\">\n    <button class=\"btn btn-primary\">Save</button>\n    <span class=\"icon-lg icon-close\"></span>\n  </div>\n</div>";
+},"useData":true});
+templates['newList'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    return "<div id=\"new-list\" class=\"no-sort-list\">\n  <input placeholder=\"Add a list...\">\n  <div class=\"save\">\n    <button class=\"btn btn-primary\">Save</button>\n    <span class=\"icon-lg icon-close\"></span>\n  </div>\n</div>";
 },"useData":true});
 templates['profile'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;

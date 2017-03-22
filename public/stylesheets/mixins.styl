@@ -59,6 +59,10 @@ colors = {
     list: #E2E4E6,
     listText: #4D4D4D
     card: #fff
+  },
+  newList: {
+    bg: #0067A3,
+    text: #E4F0F6
   }
 }
 
@@ -98,3 +102,15 @@ button-new()
     top: 2px
     left: 2px
     box-shadow: 1px 1px 0 1px darken(colors.btn.new, 10)
+
+placeholder(selected-color)
+  &::-webkit-input-placeholder
+    color: selected-color
+  &:-ms-input-placeholder
+    color: selected-color
+  &::-moz-placeholder
+    color: selected-color
+    opacity: 1
+  &:-moz-placeholder
+    color: selected-color
+    opacity: 1

@@ -42,7 +42,7 @@ nav.app-layout .logo-white.icon {
   height: 30px;
   width: 30px;
   text-indent: 9999px;
-  background: transparent url("/images/logo.png") 0 5px no-repeat;
+  background: transparent url("/images/logo.png") 0 6px no-repeat;
   background-size: 20px;
   margin-right: 2px;
 }
@@ -580,4 +580,124 @@ main.app #lists li.list p:hover {
 }
 .underline {
   text-decoration: underline;
+}
+#new-list {
+  background: #0067a3;
+  box-sizing: border-box;
+  width: 270px;
+  float: left;
+  border-radius: 3px;
+}
+#new-list input {
+  outline: none;
+  font-size: 14px;
+  color: #fff;
+  background: #0067a3;
+  border: none;
+  padding: 12px 8px;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: block;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+#new-list input::-webkit-input-placeholder {
+  color: #e4f0f6;
+}
+#new-list input:-ms-input-placeholder {
+  color: #e4f0f6;
+}
+#new-list input::-moz-placeholder {
+  color: #e4f0f6;
+  opacity: 1;
+}
+#new-list input:-moz-placeholder {
+  color: #e4f0f6;
+  opacity: 1;
+}
+#new-list input:hover {
+  background: #00578a;
+}
+#new-list .save {
+  display: none;
+}
+#new-list:hover {
+  background: #00578a;
+}
+#new-list.add-list {
+  background: #e2e4e6;
+  color: #fff;
+  padding: 3px 3px 5px 3px;
+}
+#new-list.add-list input {
+  background: #d7d9db;
+  border: 1px solid #aaa;
+  padding: 8px;
+  color: #8c8c8c;
+  margin-bottom: 3px;
+  box-shadow: inset 0px 0px 1px 0 rgba(0,0,0,0.5);
+}
+#new-list.add-list input::-webkit-input-placeholder {
+  color: #8c8c8c;
+}
+#new-list.add-list input:-ms-input-placeholder {
+  color: #8c8c8c;
+}
+#new-list.add-list input::-moz-placeholder {
+  color: #8c8c8c;
+  opacity: 1;
+}
+#new-list.add-list input:-moz-placeholder {
+  color: #8c8c8c;
+  opacity: 1;
+}
+#new-list.add-list .save {
+  display: block;
+}
+#new-list.add-list .save .btn,
+#new-list.add-list .save span {
+  vertical-align: middle;
+  cursor: pointer;
+}
+#new-list.add-list .save .btn {
+  height: 30px;
+  font-size: 14px;
+  padding: 5px 12px;
+  margin-left: 0px;
+}
+#new-card {
+  box-sizing: border-box;
+  padding: 0 8px 8px 8px;
+}
+#new-card textarea {
+  border-radius: 3px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  border: none;
+  height: 65px;
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 1px 0px #646464;
+}
+#new-card .save {
+  display: block;
+}
+#new-card .save .btn,
+#new-card .save span {
+  vertical-align: middle;
+  cursor: pointer;
+}
+#new-card .save .btn {
+  height: 30px;
+  font-size: 14px;
+  padding: 5px 12px;
+  margin-left: 0px;
 }

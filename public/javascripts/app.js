@@ -106,25 +106,17 @@ const App = {
 
     $(document).on('click', 'main.app', function(e) {
       if ($('.pop-up').is(':visible') && (e.target.nodeName === 'MAIN' || e.target.nodeName === 'UL')) {
-        if ($('#boards-search').is(':visible')) {
-          history.back();
-        } else {
-          $('.pop-up').remove();
-        }
+        $('.pop-up').remove();
       }
     });
 
     $(document).on('click', 'nav', function(e) {
       if ($('.pop-up').is(':visible') && e.target.nodeName === 'NAV') {
-        if ($('#boards-search').is(':visible')) {
-          history.back();
-        } else {
-          $('.pop-up').remove();
-        }
+        $('.pop-up').remove();
       }
     });
 
-    this.$main.on('click', '.icon-close', function(e) {
+    this.$main.on('click', 'header .icon-close', function(e) {
       $(e.target).closest('div').remove();
     });
   },
@@ -161,30 +153,3 @@ const App = {
     this.setupRouter();
   },
 };
-
-// // for sorting
-// const starred = document.getElementById('boards-starred');
-// const sortableStarred = new Sortable(starred, {
-//   group: 'boards',
-//   animation: 150,
-//   draggable: '.board',
-//   onSort(e) {
-//     $(e.to).find('li').each((idx, el) => {
-//       let msg = $(el).find('a')[0].text;
-//       msg += `; old: ${$(el).data('id')}`;
-//       msg += `; new: ${idx + 1}`;
-//       console.log(msg);
-//     });
-//   },
-// });
-
-// const personal = document.getElementById('boards-personal');
-// const sortablePersonal = new Sortable(personal, {
-//   group: 'boards',
-//   animation: 150,
-//   draggable: '.board',
-//   onSort(e) {
-//     console.log('hello');
-//   },
-// });
-// // end for sorting
