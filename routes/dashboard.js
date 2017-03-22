@@ -19,6 +19,11 @@ module.exports = function(router, requireLogin) {
         .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
         .init(cardsFilePath);
 
+  const notificationsFilePath = path.resolve(path.dirname(__dirname), 'data/notifications.json');
+  const notificationsApi = Object
+        .create(require(path.resolve(path.dirname(__dirname), 'api/JSON-crud')))
+        .init(notificationsFilePath);
+
   router.get('/dashboard', requireLogin, function(req, res, next) {
     res.render('dashboard', { title: 'Dashboard' });
   });
@@ -90,5 +95,13 @@ module.exports = function(router, requireLogin) {
     })
     .post(function(req, res, next) {
       console.log(req.body);
+    });
+
+  router.route('/notifications')
+    .get(function(req, res, next) {
+      res.json(notificationsApi.data());
+    })
+    .post(function(req, res, next) {
+      res.json(notificationsApi.save(req.body));
     });
 };

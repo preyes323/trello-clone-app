@@ -10,11 +10,11 @@ That said, below is the stack used for this Trello Clone App
 
 * `node + express`: Server and router
 * `pug + stylus`: Pre-processor for html and css
-* `json`: Used `json` data to persist the data. Used [custom built api](https://github.com/preyes323/JSON-crud) for parsing the JSON data for easy use with RESTful routes.
+* `json`: Used `json` to persist the data. Used [custom built api](https://github.com/preyes323/JSON-crud) for parsing the JSON data for easy use with RESTful routes.
 * `client-sessions + bcrypt`: Manage client sessions and securely store user information (i.e password)
 * `gravatar`: Used for profile pictures
 * `grunt`: For minification and uglification
-* `csurf`: Used to manage CSRF attacks. Currently disabled. TODO: add public accessible API endpoint
+* `csurf`: Used to manage CSRF. Currently disabled. TODO: add public accessible API endpoint
 
 ### Front-end
 

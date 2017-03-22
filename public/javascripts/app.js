@@ -5,10 +5,34 @@ const App = {
       return name.toLowerCase();
     });
 
+    Handlebars.registerHelper('generateNotification', function(data) {
+      const timePassed = moment(data.transactionDate).fromNow();
+      let markup = '';
+      switch (data.type) {
+      case 'addList':
+        markup += `<img src="${data.profilePic}">`;
+        markup += `<span class="notification-${data.type}">`;
+        markup += `<span class="author">${data.firstName} ${data.lastName}</span> added `;
+        markup += `${data.listTitle} List to <a href="/boards/${data.boardId}">${data.boardTitle}</a>`;
+        markup += '</span>';
+        markup += `<span class="ago">${timePassed}</span>`;
+
+        break;
+
+      case 'addCard':
+
+        break;
+
+      case 'moveCard':
+        break;
+      }
+
+      return new Handlebars.SafeString(markup);
+    });
+
     this.boardSearchTemplate = Handlebars.templates.boardsSearch;
     this.profileTemplate = Handlebars.templates.profile;
     this.createNewBoardTemplate = Handlebars.templates.create;
-    this.notificationsTemplate = Handlebars.templates.boardsNotification;
     this.boardListsHeaderTemplate = Handlebars.templates.boardListsHeader;
   },
 
@@ -40,6 +64,7 @@ const App = {
       background: '#fff',
       color: '#4d4d4d',
     });
+    this.$nav.find('.icon-add').css('display', 'inline-block');
   },
 
   styleForBoardList() {
@@ -50,21 +75,30 @@ const App = {
       width: '1600px',
       'margin-top': '85px',
     });
+    this.$nav.find('.icon-add').css('display', 'none');
   },
 
   getBoardList(boardId) {
+    this.activeBoardList = boardId;
     $.ajax({
       url: `/boards/lists/${boardId}`,
       method: 'GET',
       dataType: 'json',
-      success(json) {
-        App.lists.reset(json);
-        App.lists.each((list) => {
-          list.trigger('getCards');
-        });
-        App.listsView = new ListsView({ collection: App.lists });
-      },
+      success: this.setupBoardListView.bind(this),
     });
+  },
+
+
+  setupBoardListView(list) {
+    this.lists.reset(list);
+    this.lists.boardId = this.activeBoardList;
+    this.lists.each((list) => {
+      list.trigger('getCards');
+    });
+    this.listsView = new ListsView({ collection: this.lists });
+    if (!this.lists.length) {
+      this.listsView.renderList();
+    }
   },
 
   showBoardSearch() {
@@ -83,14 +117,42 @@ const App = {
   },
 
   notificationsPopup() {
-    $('.pop-up').remove();
-    this.$main.append(this.notificationsTemplate());
+    this.notificationsView.render();
   },
 
   renderBoardListHeader(boardId) {
     this.$main.html(this.boardListsHeaderTemplate({
       boardTitle: this.boards.get(boardId).get('title'),
     }));
+  },
+
+  addNewListNotification(list) {
+    debugger;
+    const notification = {
+      notificationData: {
+        profilePic: this.user.get('profilePic'),
+        type: 'addList',
+        listTitle: list.get('title'),
+        boardId: list.get('boardId'),
+        boardTitle: this.boards.get(list.get('boardId')).get('title'),
+        firstName: this.user.get('firstName'),
+        lastName: this.user.get('lastName'),
+        dateVal: Date.now(),
+        transactionDate: new Date(Date.now()),
+      },
+    };
+
+    $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: notification,
+      dataType: 'json',
+      success: this.addNotification.bind(this),
+    });
+  },
+
+  addNotification(notification) {
+    this.notifications.add(notification);
   },
 
   bindEvents() {
@@ -103,6 +165,7 @@ const App = {
     this.on('showNotifications', this.notificationsPopup.bind(this));
     this.on('showBoardList', this.setupBoardList.bind(this));
     this.listenTo(this.boards, 'add', this.loadUserBoards.bind(this));
+    this.listenTo(this.lists, 'add', this.addNewListNotification.bind(this));
 
     $(document).on('click', 'main.app', function(e) {
       if ($('.pop-up').is(':visible') && (e.target.nodeName === 'MAIN' || e.target.nodeName === 'UL')) {
@@ -139,6 +202,19 @@ const App = {
     });
   },
 
+  loadNotifications() {
+    this.notifications = new Notifications;
+    this.notificationsView = new NotificationsView({ collection: this.notifications });
+    $.ajax({
+      url: '/notifications',
+      method: 'GET',
+      dataType: 'json',
+      success(json) {
+        App.notifications.reset(json);
+      },
+    });
+  },
+
   init(user) {
     _.extend(this, Backbone.Events);
     this.setupTemplates();
@@ -148,6 +224,7 @@ const App = {
     this.boards = new Boards;
     this.lists = new Lists;
     this.boardsView = new BoardsView({ collection: this.boards });
+    this.loadNotifications();
     this.bindEvents();
     this.router = new Router;
     this.setupRouter();

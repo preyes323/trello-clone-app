@@ -338,6 +338,8 @@ main.app #boards-notification span.author {
   font-weight: 700;
 }
 main.app #boards-notification span.ago {
+  display: inline-block;
+  margin-left: 5px;
   color: #8c8c8c;
   font-size: 9pt;
 }

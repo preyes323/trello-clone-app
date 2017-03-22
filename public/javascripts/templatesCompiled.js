@@ -38,35 +38,9 @@ templates['boardsList'] = template({"compiler":[7,">= 4.0.0"],"main":function(co
     + ((stack1 = container.invokePartial(partials.lists,depth0,{"name":"lists","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "");
 },"usePartial":true,"useData":true});
 templates['boardsNotification'] = template({"1":function(container,depth0,helpers,partials,data) {
-    var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
-
-  return "<li class=\"notification clearfix\">\n        <img src=\""
-    + alias4(((helper = (helper = helpers.profilePic || (depth0 != null ? depth0.profilePic : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"profilePic","hash":{},"data":data}) : helper)))
-    + "\">\n        <span class=\"notification-"
-    + alias4(((helper = (helper = helpers.type || (depth0 != null ? depth0.type : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"type","hash":{},"data":data}) : helper)))
-    + "\">\n          <span class=\"author\">"
-    + alias4(((helper = (helper = helpers.firstName || (depth0 != null ? depth0.firstName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"firstName","hash":{},"data":data}) : helper)))
-    + " "
-    + alias4(((helper = (helper = helpers.lastName || (depth0 != null ? depth0.lastName : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"lastName","hash":{},"data":data}) : helper)))
-    + "</span>"
-    + alias4(((helper = (helper = helpers.action || (depth0 != null ? depth0.action : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"action","hash":{},"data":data}) : helper)))
-    + "</span> <a href=\"/baords/"
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "/cards/"
-    + alias4(((helper = (helper = helpers.cardId || (depth0 != null ? depth0.cardId : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"cardId","hash":{},"data":data}) : helper)))
-    + "\">"
-    + alias4(((helper = (helper = helpers.cardTitle || (depth0 != null ? depth0.cardTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"cardTitle","hash":{},"data":data}) : helper)))
-    + "</a> "
-    + alias4(((helper = (helper = helpers.prePosition || (depth0 != null ? depth0.prePosition : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"prePosition","hash":{},"data":data}) : helper)))
-    + " "
-    + alias4(((helper = (helper = helpers.listTitle || (depth0 != null ? depth0.listTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"listTitle","hash":{},"data":data}) : helper)))
-    + " on <a href=\"/boards/"
-    + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
-    + "\">"
-    + alias4(((helper = (helper = helpers.boardTitle || (depth0 != null ? depth0.boardTitle : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"boardTitle","hash":{},"data":data}) : helper)))
-    + "</a> <span class=\"ago\">"
-    + alias4(((helper = (helper = helpers.timePassed || (depth0 != null ? depth0.timePassed : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"timePassed","hash":{},"data":data}) : helper)))
-    + "</span>\n        </span>\n      </li>";
+    return "<li class=\"notification clearfix\">\n        "
+    + container.escapeExpression((helpers.generateNotification || (depth0 && depth0.generateNotification) || helpers.helperMissing).call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.notificationData : depth0),{"name":"generateNotification","hash":{},"data":data}))
+    + "\n      </li>";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 

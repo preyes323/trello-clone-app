@@ -6,10 +6,7 @@
   <ul class="notifications">
     {{~#each notifications~}}
       <li class="notification clearfix">
-        <img src="{{profilePic}}">
-        <span class="notification-{{type}}">
-          <span class="author">{{firstName}} {{lastName}}</span>{{action}}</span> <a href="/baords/{{id}}/cards/{{cardId}}">{{cardTitle}}</a> {{prePosition}} {{listTitle}} on <a href="/boards/{{id}}">{{boardTitle}}</a> <span class="ago">{{timePassed}}</span>
-        </span>
+        {{generateNotification notificationData}}
       </li>
     {{~/each~}}
   </ul>

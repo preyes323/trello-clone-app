@@ -14,7 +14,7 @@ const ListsView = Backbone.View.extend({
 
   saveListItem() {
     const title = this.$('#new-list input').val();
-    const boardId = this.collection.first().get('boardId');
+    const boardId = this.collection.boardId;
     $.ajax({
       url: `/boards/lists/${boardId}`,
       method: 'POST',

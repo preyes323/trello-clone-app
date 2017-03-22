@@ -8,6 +8,10 @@ module.exports = {
     this.tempStore = JSON.parse(fs.readFileSync(this.JSONFilePath, 'utf8'));
   },
 
+  data() {
+    return this.tempStore.data.slice();
+  },
+
   getLastId() {
     return this.tempStore.lastId;
   },
