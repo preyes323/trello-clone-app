@@ -1,6 +1,6 @@
 # Trello Clone App
 
-This is my implementation of the Trello app. It's not intended as a complete and exact replica of the app. It's purpose purely for learning purposes. A major difference of this clone with the real one is that the "boards" are all personal for personal use.
+This is my implementation of the Trello app. It's not intended as a complete and exact replica of the app. It's purpose is purely for learning purposes. A major difference of this clone with the real one is that the "boards" are all personal for personal use.
 
 For more details on what the trello app and its features are, vist [their website](https://trello.com/).
 
@@ -47,6 +47,6 @@ That said, below is the stack used for this Trello Clone App
 
 # Data Model
 
-For those interested this is the data-model that I used for the back-end given the current feature implemented. It's not exactly what I used (particularly the fields), it's more for the mental model of building the application.
+For those interested this is the data-model that I used for the back-end given the current feature implemented. It's not exactly what I used (particularly the fields), it's more for the mental model of building the application. Each box more likely corresponds to `json` data except for activity types which I just built in to the `notifications`.
 
 ![](https://github.com/preyes323/trello-clone-app/blob/master/trello-clone.png?raw=true)
