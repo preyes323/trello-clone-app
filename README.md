@@ -47,6 +47,6 @@ That said, below is the stack used for this Trello Clone App
 
 # Data Model
 
-For those interested this is the data-model that I used for the back-end given the current feature implemented:
+For those interested this is the data-model that I used for the back-end given the current feature implemented. It's not exactly what I used (particularly the fields), it's more for the mental model of building the application.
 
-![]
+![](https://github.com/preyes323/trello-clone-app/blob/master/trello-clone.png?raw=true)
