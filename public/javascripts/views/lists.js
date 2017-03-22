@@ -45,9 +45,11 @@ const ListsView = Backbone.View.extend({
     });
   },
 
-  addNewCard(list) {
-    const listId = list.listId;
-    this.collection.get(listId).cards.add(list);
+  addNewCard(card) {
+    const listId = card.listId;
+    this.collection.get(listId).cards.add(card);
+    card.boardId = this.collection.boardId;
+    App.trigger('addNewCard', card);
     this.renderWithCards();
   },
 
@@ -139,6 +141,22 @@ const ListsView = Backbone.View.extend({
                 cardPos: (idx + 1),
               },
             });
+
+            if ($(e.to).data('id') !== $(e.from).data('id')) {
+              const toId = $(e.to).data('id');
+              const fromId = $(e.from).data('id');
+              const boardId = App.lists.boardId;
+
+              const moveData = {
+                source: App.lists.get(toId).get('title'),
+                destination: App.lists.get(fromId).get('title'),
+                boardTitle: App.boards.get(boardId).get('title'),
+                title: e.item.innerText,
+                boardId,
+              };
+
+              App.trigger('cardMoved', moveData);
+            }
           });
         },
       });

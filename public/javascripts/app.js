@@ -7,26 +7,27 @@ const App = {
 
     Handlebars.registerHelper('generateNotification', function(data) {
       const timePassed = moment(data.transactionDate).fromNow();
-      let markup = '';
+      let markup = `<img src="${data.profilePic}">`;
+      markup += `<span class="notification-${data.type}">`;
+      markup += `<span class="author">${data.firstName} ${data.lastName}</span>`;
       switch (data.type) {
       case 'addList':
-        markup += `<img src="${data.profilePic}">`;
-        markup += `<span class="notification-${data.type}">`;
-        markup += `<span class="author">${data.firstName} ${data.lastName}</span> added `;
-        markup += `${data.listTitle} List to <a href="/boards/${data.boardId}">${data.boardTitle}</a>`;
-        markup += '</span>';
-        markup += `<span class="ago">${timePassed}</span>`;
-
+        markup += ` added ${data.listTitle} List to `;
         break;
 
       case 'addCard':
-
+        markup += ` added ${data.cardTitle} Card to ${data.listTitle} on `;
         break;
 
       case 'moveCard':
+        markup += ` moved ${data.cardTitle} Card`;
+        markup += ` from ${data.listSource} to ${data.listDestination} on `;
         break;
       }
 
+      markup += `<a href="/boards/${data.boardId}">${data.boardTitle}</a>`;
+      markup += '</span>';
+      markup += `<span class="ago">${timePassed}</span>`;
       return new Handlebars.SafeString(markup);
     });
 
@@ -127,7 +128,6 @@ const App = {
   },
 
   addNewListNotification(list) {
-    debugger;
     const notification = {
       notificationData: {
         profilePic: this.user.get('profilePic'),
@@ -139,6 +139,68 @@ const App = {
         lastName: this.user.get('lastName'),
         dateVal: Date.now(),
         transactionDate: new Date(Date.now()),
+      },
+    };
+
+    $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: notification,
+      dataType: 'json',
+      success: this.addNotification.bind(this),
+    });
+  },
+
+  addNewCardNotification(card) {
+    const listId = card.listId;
+    const listTitle = this.lists.get(listId).get('title');
+    const boardId = card.boardId;
+    const boardTitle = this.boards.get(boardId).get('title');
+
+    const notification = {
+      notificationData: {
+        profilePic: this.user.get('profilePic'),
+        type: 'addCard',
+        cardTitle: card.title,
+        firstName: this.user.get('firstName'),
+        lastName: this.user.get('lastName'),
+        dateVal: Date.now(),
+        transactionDate: new Date(Date.now()),
+        listTitle,
+        boardId,
+        boardTitle,
+      },
+    };
+
+    $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: notification,
+      dataType: 'json',
+      success: this.addNotification.bind(this),
+    });
+  },
+
+  addMoveCardNotification(move) {
+    const listSource = move.source;
+    const listDestination = move.destination;
+    const boardId = move.boardId;
+    const boardTitle = move.boardTitle;
+
+    debugger;
+    const notification = {
+      notificationData: {
+        profilePic: this.user.get('profilePic'),
+        type: 'moveCard',
+        cardTitle: move.title,
+        firstName: this.user.get('firstName'),
+        lastName: this.user.get('lastName'),
+        dateVal: Date.now(),
+        transactionDate: new Date(Date.now()),
+        listSource,
+        listDestination,
+        boardId,
+        boardTitle,
       },
     };
 
@@ -164,6 +226,8 @@ const App = {
     this.on('createNewBoard', this.boardPopup.bind(this));
     this.on('showNotifications', this.notificationsPopup.bind(this));
     this.on('showBoardList', this.setupBoardList.bind(this));
+    this.on('addNewCard', this.addNewCardNotification.bind(this));
+    this.on('cardMoved', this.addMoveCardNotification.bind(this));
     this.listenTo(this.boards, 'add', this.loadUserBoards.bind(this));
     this.listenTo(this.lists, 'add', this.addNewListNotification.bind(this));
 
@@ -179,7 +243,7 @@ const App = {
       }
     });
 
-    this.$main.on('click', 'header .icon-close', function(e) {
+    this.$main.on('click', '.pop-up .icon-close', function(e) {
       $(e.target).closest('div').remove();
     });
   },
