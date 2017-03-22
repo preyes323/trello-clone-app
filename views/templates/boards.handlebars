@@ -1,11 +1,12 @@
 <header class="clearfix">
-  <span class="icon-lg icon-star"></span>
+  <span class="icon-lg icon-member"></span>
   <h3 class="boards-section-header">{{name}} Boards</h3>
 </header>
 <ul class="boards" id="boards-{{lowerCase name}}">
   {{~#each boards~}}
     <li class="board" data-id={{id}}>
       <a href="/boards/{{id}}">{{title}}</a>
+      <span class="icon-lg icon-close"></span>
     </li>
   {{~/each~}}
 </ul>

@@ -4,11 +4,14 @@
       <li class="list" data-pos="{{listPos}}" data-id="{{id}}">
         <header class="clearfix">
           <input class="list-name" value="{{title}}">
-          <span class="icon-sm icon-overflow-menu-horizontal list-menu"></span>
+          <span class="icon-sm icon-close list-menu"></span>
         </header>
         <ul class="cards" data-id="{{id}}">
           {{#each cards}}
-            <li class="card" data-pos="{{cardPos}}" data-id="{{id}}">{{title}}</li>
+            <li class="card" data-pos="{{cardPos}}" data-id="{{id}}">
+              {{title}}
+              <span class="icon-sm icon-close"></span>
+            </li>
           {{/each}}
         </ul>
         <p>Add a card...</p>
