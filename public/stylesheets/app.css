@@ -734,3 +734,6 @@ main.app #lists li.list p:hover {
   padding: 5px 12px;
   margin-left: 0px;
 }
+nav .header-search {
+  display: none;
+}
