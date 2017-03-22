@@ -4,7 +4,7 @@ append header
 
 block content
   div.info-content
-    form(method="post" action="/users/register")
+    form(method="post" action="/users/register" id="signup")
       if error
         p ERROR: #{error}
 
@@ -12,20 +12,22 @@ block content
 
       input(type="hidden" name="_csrf" value=csrfToken)
 
-      span First Name:
-      input(type="text" name="firstName" required=true)
-      br
+      dl
+        dt: span First Name:
+        dd: input(type="text" name="firstName" required=true)
 
-      span Last Name:
-      input(type="text" name="lastName" required)
-      br
+        br
 
-      span Email:
-      input(type="email" name="email" required)
-      br
+        dt: span Last Name:
+        dd: input(type="text" name="lastName" required)
+        br
 
-      span Password:
-      input(type="password" name="password" required)
-      br
+        dt: span Email:
+        dd: input(type="email" name="email" required)
+        br
 
-      input.btn(type="submit")
+        dt: span Password:
+        dd: input(type="password" name="password" required)
+        br
+
+      input.btn(type="submit" class="btn btn-primary")
