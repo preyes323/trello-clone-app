@@ -11,6 +11,7 @@ Here is a [link to my version](https://pure-everglades-14342.herokuapp.com) (clo
 * `Board Creation/Deletion`: Users can add any number of `boards`. Consequently they can deleted those they don't need
 * `List creation`: Within `boards` users can create any number of `lists`
 * `Card creation`: Within `lists` users can create any number of `cards`
+* `Lists/Card movement`: `Lists` can easily be moved within `boards`. Likewise, `cards` can be moved across `lists`.
 * `Search board`: Search boards
 * `Notifications`: Notifications on actions that are possible (i.e card creation, list creation, boardeletion, card movement)
 
