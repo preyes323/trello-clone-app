@@ -6,6 +6,21 @@ const BoardsView = Backbone.View.extend({
   events: {
     'click .new-board': 'createNewBoard',
     'submit': 'addBoard',
+    'click li.board span.icon-close': 'deleteBoard',
+  },
+
+  deleteBoard(e) {
+    const boardId = $(e.target).closest('li.board').data('id');
+    $.ajax({
+      url: `/boards/${boardId}`,
+      method: 'DELETE',
+      dataType: 'json',
+      success(json) {
+        const boardData = App.boards.remove(json.boardId);
+        $(`.boards [data-id=${json.boardId}]`).remove();
+        App.trigger('boardDeleted', boardData);
+      },
+    });
   },
 
   createNewBoard() {

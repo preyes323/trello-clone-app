@@ -23,9 +23,18 @@ const App = {
         markup += ` moved ${data.cardTitle} Card`;
         markup += ` from ${data.listSource} to ${data.listDestination} on `;
         break;
+
+      case 'deleteBoard':
+        markup += ' deleted ';
+        break;
       }
 
-      markup += `<a href="/boards/${data.boardId}">${data.boardTitle}</a>`;
+      if (parseInt(data.boardId, 10) === -1) {
+        markup += `<a href="/">${data.boardTitle}</a>`;
+      } else {
+        markup += `<a href="/boards/${data.boardId}">${data.boardTitle}</a>`;
+      }
+
       markup += '</span>';
       markup += `<span class="ago">${timePassed}</span>`;
       return new Handlebars.SafeString(markup);
@@ -187,7 +196,6 @@ const App = {
     const boardId = move.boardId;
     const boardTitle = move.boardTitle;
 
-    debugger;
     const notification = {
       notificationData: {
         profilePic: this.user.get('profilePic'),
@@ -201,6 +209,33 @@ const App = {
         listDestination,
         boardId,
         boardTitle,
+      },
+    };
+
+    $.ajax({
+      url: '/notifications',
+      method: 'POST',
+      data: notification,
+      dataType: 'json',
+      success: this.addNotification.bind(this),
+    });
+  },
+
+  addDeleteBoardNotification(board) {
+    const boardTitle = board.get('title');
+    const boardId = '-1';
+
+    debugger;
+    const notification = {
+      notificationData: {
+        profilePic: this.user.get('profilePic'),
+        type: 'deleteBoard',
+        firstName: this.user.get('firstName'),
+        lastName: this.user.get('lastName'),
+        dateVal: Date.now(),
+        transactionDate: new Date(Date.now()),
+        boardTitle,
+        boardId,
       },
     };
 
@@ -228,6 +263,7 @@ const App = {
     this.on('showBoardList', this.setupBoardList.bind(this));
     this.on('addNewCard', this.addNewCardNotification.bind(this));
     this.on('cardMoved', this.addMoveCardNotification.bind(this));
+    this.on('boardDeleted', this.addDeleteBoardNotification.bind(this));
     this.listenTo(this.boards, 'add', this.loadUserBoards.bind(this));
     this.listenTo(this.lists, 'add', this.addNewListNotification.bind(this));
 

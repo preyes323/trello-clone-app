@@ -129,12 +129,21 @@ main.app
       margin-right: 8px
   li.board
     display: inline-block
+    position: relative
     width: 24.25%
     height: 95px
     margin-right: 1%
     margin-bottom: 1%
     border-radius: 3px
     vertical-align: top
+    span.icon-close
+      display: none
+      position: absolute
+      top: 5px
+      right: 5px
+      cursor: pointer
+      &:hover
+        color: #fff
     a
       height: 100%
       width: 100%
@@ -159,6 +168,8 @@ main.app
         color: colors.app.boardCard.text
       &:hover
         background: darken(colors.app.boardCard.bg, 5)
+        span.icon-close
+          display: block
     &.new-board
       background: colors.app.boardCard.bgNew
       cursor: pointer
@@ -421,6 +432,10 @@ main.app
       color: colors.listsView.listText
       border-radius: 3px
       margin-right: 10px
+      span.icon-close
+        display: none
+      &:hover span.icon-close
+        display: block
       header
         height: 35px
         box-sizing: border-box
@@ -456,6 +471,7 @@ main.app
         display: block
         li.card
           display: block
+          position: relative
           box-sizing: border-box
           padding: 8px
           font-size: 14px
@@ -464,6 +480,14 @@ main.app
           border: none
           border-radius: 3px
           margin-bottom: 5px
+          span.icon-close
+            display: none
+            position: absolute
+            top: 8px
+            right: 8px
+            cursor: pointer
+          &:hover span.icon-close
+            display: block
       p
         font-size: 12px
         padding: 10px

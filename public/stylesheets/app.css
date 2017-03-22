@@ -163,12 +163,23 @@ main.app header span {
 }
 main.app li.board {
   display: inline-block;
+  position: relative;
   width: 24.25%;
   height: 95px;
   margin-right: 1%;
   margin-bottom: 1%;
   border-radius: 3px;
   vertical-align: top;
+}
+main.app li.board span.icon-close {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+main.app li.board span.icon-close:hover {
+  color: #fff;
 }
 main.app li.board a {
   height: 100%;
@@ -200,6 +211,9 @@ main.app li.board.board a {
 }
 main.app li.board.board:hover {
   background: #025a8e;
+}
+main.app li.board.board:hover span.icon-close {
+  display: block;
 }
 main.app li.board.new-board {
   background: #e2e4e6;
@@ -518,6 +532,12 @@ main.app #lists li.list {
   border-radius: 3px;
   margin-right: 10px;
 }
+main.app #lists li.list span.icon-close {
+  display: none;
+}
+main.app #lists li.list:hover span.icon-close {
+  display: block;
+}
 main.app #lists li.list header {
   height: 35px;
   box-sizing: border-box;
@@ -561,6 +581,7 @@ main.app #lists li.list ul.cards {
 }
 main.app #lists li.list ul.cards li.card {
   display: block;
+  position: relative;
   box-sizing: border-box;
   padding: 8px;
   font-size: 14px;
@@ -569,6 +590,16 @@ main.app #lists li.list ul.cards li.card {
   border: none;
   border-radius: 3px;
   margin-bottom: 5px;
+}
+main.app #lists li.list ul.cards li.card span.icon-close {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+}
+main.app #lists li.list ul.cards li.card:hover span.icon-close {
+  display: block;
 }
 main.app #lists li.list p {
   font-size: 12px;

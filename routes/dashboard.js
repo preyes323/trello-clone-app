@@ -33,6 +33,13 @@ module.exports = function(router, requireLogin) {
   });
 
   // REST API
+  router.delete('/boards/:boardId', function(req, res, next) {
+    const boardId = parseInt(req.params.boardId, 10);
+    boardsApi.delete(boardId);
+    boardsApi.record();
+    res.json({ boardId });
+  });
+
   router.post('/boards/create', function(req, res, next) {
     const data = req.body;
     data.userId = parseInt(data.userId, 10);
