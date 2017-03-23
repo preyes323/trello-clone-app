@@ -720,19 +720,24 @@ main.app #lists li.list p:hover {
   box-sizing: border-box;
   box-shadow: 0px 1px 1px 0px #646464;
 }
-#new-card .save {
+#new-card #save-card.save {
   display: block;
 }
-#new-card .save .btn,
-#new-card .save span {
+#new-card #save-card.save .btn,
+#new-card #save-card.save span {
   vertical-align: middle;
   cursor: pointer;
 }
-#new-card .save .btn {
+#new-card #save-card.save .btn {
   height: 30px;
   font-size: 14px;
   padding: 5px 12px;
   margin-left: 0px;
+}
+#new-card #save-card.save span.icon-close {
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 2px;
 }
 nav .header-search {
   display: none;

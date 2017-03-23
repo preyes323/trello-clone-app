@@ -80,7 +80,7 @@ templates['lists'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n        <header class=\"clearfix\">\n          <input class=\"list-name\" value=\""
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "\">\n          <span class=\"icon-sm icon-close list-menu\"></span>\n        </header>\n        <ul class=\"cards\" data-id=\""
+    + "\">\n        </header>\n        <ul class=\"cards\" data-id=\""
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.cards : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -94,7 +94,7 @@ templates['lists'] = template({"1":function(container,depth0,helpers,partials,da
     + alias4(((helper = (helper = helpers.id || (depth0 != null ? depth0.id : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"id","hash":{},"data":data}) : helper)))
     + "\">\n              "
     + alias4(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"title","hash":{},"data":data}) : helper)))
-    + "\n              <span class=\"icon-sm icon-close\"></span>\n            </li>\n";
+    + "\n            </li>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -131,7 +131,7 @@ templates['newBoard'] = template({"compiler":[7,">= 4.0.0"],"main":function(cont
     + "\n  </a>\n</li>";
 },"useData":true});
 templates['newCard'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div id=\"new-card\">\n  <textarea></textarea>\n  <div class=\"save\">\n    <button class=\"btn btn-primary\">Save</button>\n    <span class=\"icon-lg icon-close\"></span>\n  </div>\n</div>";
+    return "<div id=\"new-card\">\n  <textarea></textarea>\n  <div id=\"save-card\" class=\"save\">\n    <button class=\"btn btn-primary\">Save</button>\n    <span class=\"icon-lg icon-close\"></span>\n  </div>\n</div>";
 },"useData":true});
 templates['newList'] = template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     return "<div id=\"new-list\" class=\"no-sort-list\">\n  <input placeholder=\"Add a list...\">\n  <div class=\"save\">\n    <button class=\"btn btn-primary\">Save</button>\n    <span class=\"icon-lg icon-close\"></span>\n  </div>\n</div>";
