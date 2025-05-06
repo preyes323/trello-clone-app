@@ -1,1 +1,1 @@
-puts array1 == array2
+puts array1.eql? array2
